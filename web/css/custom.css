@@ -1,0 +1,28 @@
+
+/** ADD YOUR AWESOME CODES HERE **/
+
+.footer-partner{
+  margin: 70px auto;
+  margin-top: 0px;
+} 
+nav.navbar .navbar-brand img.logo{
+  width: 160px;
+}
+.white-text{
+  color: white;
+}
+.black-text{
+  color: black;
+}
+.white-text:hover{
+  color: white;
+}
+
+.show-product {
+	width: 100%; 
+	height: 16rem;
+}
+
+.why-text h4{
+  height: 5rem;
+}
