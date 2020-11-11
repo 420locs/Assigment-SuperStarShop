@@ -46,7 +46,7 @@
 		<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="css/util.css">
-		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="css/login-form.css.css">
 		<!--===============================================================================================-->
 		<!--[if lt IE 9]>
 		  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -63,141 +63,49 @@
 
 
 		<!-- Start Main Top -->
-		<header class="main-header">
-			<!-- Start Navigation -->
-			<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
-				<div class="container">
-					<!-- Start Header Navigation -->
-					<div class="navbar-header">
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-							<i class="fa fa-bars"></i>
-						</button>
-						<a class="navbar-brand" href="index.jsp"><img src="images/logo.png" class="logo" alt=""></a>
-					</div>
-					<!-- End Header Navigation -->
+    <header class="main-header">
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+            <div class="container">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
+                        aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="home"><img src="images/logo.png" class="logo" alt=""></a>
+                </div>
+                <!-- End Header Navigation -->
 
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="navbar-menu">
-						<ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-							<li class="nav-item"><a class="nav-link" href="index.jsp">Home</a></li>
-							<li class="nav-item"><a class="nav-link" href="about.jsp">About Us</a></li>
-							<li class="dropdown megamenu-fw">
-								<a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Product</a>
-								<ul class="dropdown-menu megamenu-content" role="menu">
-									<li>
-										<div class="row">
-											<div class="col-menu col-md-3">
-												<h6 class="title">Top</h6>
-												<div class="content">
-													<ul class="menu-col">
-														<li><a href="shop.jsp">Jackets</a></li>
-														<li><a href="shop.jsp">Shirts</a></li>
-														<li><a href="shop.jsp">Sweaters & Cardigans</a></li>
-														<li><a href="shop.jsp">T-shirts</a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- end col-3 -->
-											<div class="col-menu col-md-3">
-												<h6 class="title">Bottom</h6>
-												<div class="content">
-													<ul class="menu-col">
-														<li><a href="shop.jsp">Swimwear</a></li>
-														<li><a href="shop.jsp">Skirts</a></li>
-														<li><a href="shop.jsp">Jeans</a></li>
-														<li><a href="shop.jsp">Trousers</a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- end col-3 -->
-											<div class="col-menu col-md-3">
-												<h6 class="title">Clothing</h6>
-												<div class="content">
-													<ul class="menu-col">
-														<li><a href="shop.jsp">Top Wear</a></li>
-														<li><a href="shop.jsp">Party wear</a></li>
-														<li><a href="shop.jsp">Bottom Wear</a></li>
-														<li><a href="shop.jsp">Indian Wear</a></li>
-													</ul>
-												</div>
-											</div>
-											<div class="col-menu col-md-3">
-												<h6 class="title">Accessories</h6>
-												<div class="content">
-													<ul class="menu-col">
-														<li><a href="shop.jsp">Bags</a></li>
-														<li><a href="shop.jsp">Sunglasses</a></li>
-														<li><a href="shop.jsp">Fragrances</a></li>
-														<li><a href="shop.jsp">Wallets</a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- end col-3 -->
-										</div>
-										<!-- end row -->
-									</li>
-								</ul>
-							</li>
-							<li class="dropdown active">
-								<a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
-								<ul class="dropdown-menu">
-									<li><a href="cart.jsp">Cart</a></li>
-									<li><a href="checkout.jsp">Checkout</a></li>
-									<li><a href="my-account.jsp">My Account</a></li>
-									<li><a href="wishlist.jsp">Wishlist</a></li>
-									<li><a href="shop-detail.jsp">Shop Detail</a></li>
-								</ul>
-							</li>
-							<li class="nav-item"><a class="nav-link" href="service.jsp">Our Service</a></li>
-							<li class="nav-item"><a class="nav-link" href="contact-us.jsp">Contact Us</a></li>
-						</ul>
-					</div>
-					<!-- /.navbar-collapse -->
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="nav-item active"><a class="nav-link" href="home">Trang Chủ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="shop">Sản Phẩm</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.jsp">Liên Hệ</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
 
-					<!-- Start Atribute Navigation -->
-					<div class="attr-nav">
-						<ul>
-							<li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-							<li class="side-menu"><a href="#">
-									<i class="fa fa-shopping-bag"></i>
-									<span class="badge">3</span>
-								</a></li>
-						</ul>
-					</div>
-					<!-- End Atribute Navigation -->
-				</div>
-				<!-- Start Side Menu -->
-				<div class="side">
-					<a href="#" class="close-side"><i class="fa fa-times"></i></a>
-					<li class="cart-box">
-						<ul class="cart-list">
-							<li>
-								<a href="#" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
-								<h6><a href="#">Delica omtantur </a></h6>
-								<p>1x - <span class="price">$80.00</span></p>
-							</li>
-							<li>
-								<a href="#" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
-								<h6><a href="#">Omnes ocurreret</a></h6>
-								<p>1x - <span class="price">$60.00</span></p>
-							</li>
-							<li>
-								<a href="#" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
-								<h6><a href="#">Agam facilisis</a></h6>
-								<p>1x - <span class="price">$40.00</span></p>
-							</li>
-							<li class="total">
-								<a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-								<span class="float-right"><strong>Total</strong>: $180.00</span>
-							</li>
-						</ul>
-					</li>
-				</div>
-				<!-- End Side Menu -->
-			</nav>
-			<!-- End Navigation -->
-		</header>
-		<!-- End Main Top -->
+                <!-- Start Atribute Navigation -->
+                <div class="attr-nav">
+                    <ul>
+                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+                        <li class="side-menu"><a href="#">
+                                <i class="fa fa-shopping-bag"></i>
+                                <span class="badge">3</span>
+                            </a></li>
+                    </ul>
+                </div>
+                <!-- End Atribute Navigation -->
+            </div>
+            <!-- Start Side Menu -->
+            <jsp:include page="/silde-cart.jsp" />
+            <!-- End Side Menu -->
+        </nav>
+        <!-- End Navigation -->
+    </header>
+    <!-- End Main Top -->
 
 		<!-- Start Top Search -->
 		<jsp:include page="search-bar.jsp"/>
@@ -207,52 +115,86 @@
 		<div class="limiter">
 			<div class="container-login100">
 				<div class="wrap-login100">
-					<div class="login100-pic js-tilt" data-tilt>
+					<div class="login100-pic js-tilt col-4" style="margin-top: 4rem" data-tilt>
+						<input type="file" >
 						<img src="images/img-01.png" alt="IMG">
 					</div>
 
-					<form class="login100-form validate-form">
+					<form class="login100-form validate-form col-8" action="register" method="POST">
 						<span class="login100-form-title">
-							Member Login
+							Đăng ký thành viên
 						</span>
 
-						<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-							<input class="input100" type="text" name="email" placeholder="Email">
+						<div class="wrap-input100 validate-input" data-validate = "Họ và tên không được để trống">
+							<input class="input100" type="text" name="name" placeholder="Họ và tên*">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
-								<i class="fa fa-envelope" aria-hidden="true"></i>
+								<i class="fas fa-signature"></i>
 							</span>
 						</div>
 
-						<div class="wrap-input100 validate-input" data-validate = "Password is required">
-							<input class="input100" type="password" name="pass" placeholder="Password">
+
+						<div class="wrap-input100 validate-input" data-validate = "Username không được để trống">
+							<input class="input100" type="text" name="username" placeholder="Username*">
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+								<i class="fa fa-user" aria-hidden="true"></i>
+							</span>
+						</div>
+						
+						<div class="wrap-input100 validate-input" data-validate = "Mật khẩu không được để trống">
+							<input class="input100" type="password" name="password" placeholder="Mật khẩu*">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
 								<i class="fa fa-lock" aria-hidden="true"></i>
 							</span>
 						</div>
 
+						<div class="wrap-input100 validate-input" data-validate = "Mật khẩu không được để trống">
+							<input class="input100" type="password" name="re-password" placeholder="Nhập lại mật khẩu*">
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+								<i class="fa fa-lock" aria-hidden="true"></i>
+							</span>
+						</div>
+						
+						<div class="wrap-input100">
+							<input class="input100" type="text" name="email" placeholder="Email">
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+								<i class="fa fa-envelope" aria-hidden="true"></i>
+							</span>
+						</div>
+						
+						<div class="wrap-input100">
+							<input class="input100" type="text" name="city" placeholder="Thành phố">
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+								<i class="fa fa-building"></i>
+							</span>
+						</div>
+						
+						<div class="wrap-input100">
+							<input class="input100" type="text" name="address" placeholder="Địa chỉ chi tiết">
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+								<i class="fa fa-address-card" aria-hidden="true"></i>
+							</span>
+						</div>
+						
+						<div class="wrap-input100">
+							<input class="input100" type="tel" name="phone" placeholder="Số điện thoại">
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+								<i class="fa fa-phone" aria-hidden="true"></i>
+							</span>
+						</div>
 						<div class="container-login100-form-btn">
 							<button class="login100-form-btn">
-								Login
+								Đăng ký
 							</button>
 						</div>
 
-						<div class="text-center p-t-12">
-							<span class="txt1">
-								Forgot
-							</span>
-							<a class="txt2" href="#">
-								Username / Password?
-							</a>
-						</div>
-
-						<div class="text-center p-t-136">
-							<a class="txt2" href="#">
-								Create your Account
-								<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-							</a>
-						</div>
 					</form>
 				</div>
 			</div>
@@ -261,7 +203,7 @@
 
 
 
-		<jsp:include page="footer.html" />
+		<jsp:include page="footer.jsp" />
 
 		<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
 

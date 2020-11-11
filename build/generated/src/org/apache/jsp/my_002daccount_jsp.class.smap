@@ -1,0 +1,16 @@
+SMAP
+my_002daccount_jsp.java
+JSP
+*S JSP
+*F
++ 0 my-account.jsp
+my-account.jsp
+*L
+5,123:44
+128:167,3
+129,39:170
+168:209,3
+169,275:212
+444:487,3
+445,30:490
+*E

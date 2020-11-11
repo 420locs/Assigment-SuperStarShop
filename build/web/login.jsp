@@ -17,7 +17,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!-- Site Metas -->
-		<title>ThewayShop - Ecommerce Bootstrap 4 HTML Template</title>
+		<title>Đăng ký thành viên</title>
 		<meta name="keywords" content="">
 		<meta name="description" content="">
 		<meta name="author" content="">
@@ -46,7 +46,7 @@
 		<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="css/util.css">
-		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="css/login-form.css">
 		<!--===============================================================================================-->
 		<!--[if lt IE 9]>
 		  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -69,87 +69,20 @@
 				<div class="container">
 					<!-- Start Header Navigation -->
 					<div class="navbar-header">
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
+							aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 							<i class="fa fa-bars"></i>
 						</button>
-						<a class="navbar-brand" href="index.jsp"><img src="images/logo.png" class="logo" alt=""></a>
+						<a class="navbar-brand" href="home"><img src="images/logo.png" class="logo" alt=""></a>
 					</div>
 					<!-- End Header Navigation -->
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="navbar-menu">
 						<ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-							<li class="nav-item"><a class="nav-link" href="index.jsp">Home</a></li>
-							<li class="nav-item"><a class="nav-link" href="about.jsp">About Us</a></li>
-							<li class="dropdown megamenu-fw">
-								<a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Product</a>
-								<ul class="dropdown-menu megamenu-content" role="menu">
-									<li>
-										<div class="row">
-											<div class="col-menu col-md-3">
-												<h6 class="title">Top</h6>
-												<div class="content">
-													<ul class="menu-col">
-														<li><a href="shop.jsp">Jackets</a></li>
-														<li><a href="shop.jsp">Shirts</a></li>
-														<li><a href="shop.jsp">Sweaters & Cardigans</a></li>
-														<li><a href="shop.jsp">T-shirts</a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- end col-3 -->
-											<div class="col-menu col-md-3">
-												<h6 class="title">Bottom</h6>
-												<div class="content">
-													<ul class="menu-col">
-														<li><a href="shop.jsp">Swimwear</a></li>
-														<li><a href="shop.jsp">Skirts</a></li>
-														<li><a href="shop.jsp">Jeans</a></li>
-														<li><a href="shop.jsp">Trousers</a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- end col-3 -->
-											<div class="col-menu col-md-3">
-												<h6 class="title">Clothing</h6>
-												<div class="content">
-													<ul class="menu-col">
-														<li><a href="shop.jsp">Top Wear</a></li>
-														<li><a href="shop.jsp">Party wear</a></li>
-														<li><a href="shop.jsp">Bottom Wear</a></li>
-														<li><a href="shop.jsp">Indian Wear</a></li>
-													</ul>
-												</div>
-											</div>
-											<div class="col-menu col-md-3">
-												<h6 class="title">Accessories</h6>
-												<div class="content">
-													<ul class="menu-col">
-														<li><a href="shop.jsp">Bags</a></li>
-														<li><a href="shop.jsp">Sunglasses</a></li>
-														<li><a href="shop.jsp">Fragrances</a></li>
-														<li><a href="shop.jsp">Wallets</a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- end col-3 -->
-										</div>
-										<!-- end row -->
-									</li>
-								</ul>
-							</li>
-							<li class="dropdown active">
-								<a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
-								<ul class="dropdown-menu">
-									<li><a href="cart.jsp">Cart</a></li>
-									<li><a href="checkout.jsp">Checkout</a></li>
-									<li><a href="my-account.jsp">My Account</a></li>
-									<li><a href="wishlist.jsp">Wishlist</a></li>
-									<li><a href="shop-detail.jsp">Shop Detail</a></li>
-								</ul>
-							</li>
-							<li class="nav-item"><a class="nav-link" href="service.jsp">Our Service</a></li>
-							<li class="nav-item"><a class="nav-link" href="contact-us.jsp">Contact Us</a></li>
+							<li class="nav-item active"><a class="nav-link" href="home">Trang Chủ</a></li>
+							<li class="nav-item"><a class="nav-link" href="shop">Sản Phẩm</a></li>
+							<li class="nav-item"><a class="nav-link" href="about.jsp">Liên Hệ</a></li>
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
@@ -167,32 +100,7 @@
 					<!-- End Atribute Navigation -->
 				</div>
 				<!-- Start Side Menu -->
-				<div class="side">
-					<a href="#" class="close-side"><i class="fa fa-times"></i></a>
-					<li class="cart-box">
-						<ul class="cart-list">
-							<li>
-								<a href="#" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
-								<h6><a href="#">Delica omtantur </a></h6>
-								<p>1x - <span class="price">$80.00</span></p>
-							</li>
-							<li>
-								<a href="#" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
-								<h6><a href="#">Omnes ocurreret</a></h6>
-								<p>1x - <span class="price">$60.00</span></p>
-							</li>
-							<li>
-								<a href="#" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
-								<h6><a href="#">Agam facilisis</a></h6>
-								<p>1x - <span class="price">$40.00</span></p>
-							</li>
-							<li class="total">
-								<a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-								<span class="float-right"><strong>Total</strong>: $180.00</span>
-							</li>
-						</ul>
-					</li>
-				</div>
+				<jsp:include page="/silde-cart.jsp" />
 				<!-- End Side Menu -->
 			</nav>
 			<!-- End Navigation -->
@@ -211,25 +119,30 @@
 						<img src="images/img-01.png" alt="IMG">
 					</div>
 
-					<form class="login100-form validate-form">
+					<form class="login100-form validate-form" action="login" method="POST">
 						<span class="login100-form-title">
-							Member Login
+							Đăng nhập
 						</span>
 
-						<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-							<input class="input100" type="text" name="email" placeholder="Email">
+						<div class="wrap-input100 validate-input" data-validate = "Username is required">
+							<input class="input100" type="text" name="username" placeholder="Tên đăng nhập" value="${cookie.username.getValue()}">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
-								<i class="fa fa-envelope" aria-hidden="true"></i>
+								<i class="fa fa-users" aria-hidden="true"></i>
 							</span>
 						</div>
 
 						<div class="wrap-input100 validate-input" data-validate = "Password is required">
-							<input class="input100" type="password" name="pass" placeholder="Password">
+							<input class="input100" type="password" name="password" placeholder="Mật khẩu" value="${cookie.password.getValue()}">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
 								<i class="fa fa-lock" aria-hidden="true"></i>
 							</span>
+						</div>
+						
+						<div class="form-group form-check">
+							<input type="checkbox" name="remember-me" >
+							<label class="form-check-label" for="exampleCheck1">Remember me</label>
 						</div>
 
 						<div class="container-login100-form-btn">
@@ -248,7 +161,7 @@
 						</div>
 
 						<div class="text-center p-t-136">
-							<a class="txt2" href="#">
+							<a class="txt2" href="register">
 								Create your Account
 								<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 							</a>
@@ -261,7 +174,7 @@
 
 
 
-		<jsp:include page="footer.html" />
+		<jsp:include page="footer.jsp" />
 
 		<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
 

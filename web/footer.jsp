@@ -1,11 +1,13 @@
-<!-- Start Footer  -->
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+    <!-- Start Footer  -->
 <footer>
     <div class="footer-main">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="footer-widget">
-                        <h4>bi lồn gì nhỉ</h4>
+                        <h4>Đăng Nhập</h4>
                         <p>Thực ra chưa biết gi gì :v, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
                             nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -56,5 +58,3 @@
     </div>
 </footer>
 <!-- End Footer  -->
-<!-- Fontawesome library -->
-<script src="https://kit.fontawesome.com/0ecee80187.js" crossorigin="anonymous"></script>

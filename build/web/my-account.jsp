@@ -45,63 +45,7 @@
 <body>
 
     <!-- Start Main Top -->
-    <div class="main-top">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="text-slid-box">
-                        <div id="offer-box" class="carouselTicker">
-                            <ul class="offer-box">
-                                <li>
-                                    <i class="fab fa-opencart"></i> Off 10%! Shop Now Man
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> 50% - 80% off on Fashion
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> 20% off Entire Purchase Promo code: offT20
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> Off 50%! Shop Now
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> Off 10%! Shop Now Man
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> 50% - 80% off on Fashion
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> 20% off Entire Purchase Promo code: offT20
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> Off 50%! Shop Now
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="custom-select-box">
-                        <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
-						<option>¥ JPY</option>
-						<option>$ USD</option>
-						<option>€ EUR</option>
-					</select>
-                    </div>
-                    <div class="right-phone-box">
-                        <p>Call US :- <a href="#"> +11 900 800 100</a></p>
-                    </div>
-                    <div class="our-link">
-                        <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Our location</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <jsp:include page="header-top.jsp"/>
     <!-- End Main Top -->
 
     <!-- Start Main Top -->
@@ -111,87 +55,20 @@
             <div class="container">
                 <!-- Start Header Navigation -->
                 <div class="navbar-header">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
-                </button>
-                    <a class="navbar-brand" href="index.jsp"><img src="images/logo.png" class="logo" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
+                        aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="home"><img src="images/logo.png" class="logo" alt=""></a>
                 </div>
                 <!-- End Header Navigation -->
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                        <li class="nav-item"><a class="nav-link" href="index.jsp">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.jsp">About Us</a></li>
-                        <li class="dropdown megamenu-fw">
-                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Product</a>
-                            <ul class="dropdown-menu megamenu-content" role="menu">
-                                <li>
-                                    <div class="row">
-                                        <div class="col-menu col-md-3">
-                                            <h6 class="title">Top</h6>
-                                            <div class="content">
-                                                <ul class="menu-col">
-                                                    <li><a href="shop.jsp">Jackets</a></li>
-                                                    <li><a href="shop.jsp">Shirts</a></li>
-                                                    <li><a href="shop.jsp">Sweaters & Cardigans</a></li>
-                                                    <li><a href="shop.jsp">T-shirts</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- end col-3 -->
-                                        <div class="col-menu col-md-3">
-                                            <h6 class="title">Bottom</h6>
-                                            <div class="content">
-                                                <ul class="menu-col">
-                                                    <li><a href="shop.jsp">Swimwear</a></li>
-                                                    <li><a href="shop.jsp">Skirts</a></li>
-                                                    <li><a href="shop.jsp">Jeans</a></li>
-                                                    <li><a href="shop.jsp">Trousers</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- end col-3 -->
-                                        <div class="col-menu col-md-3">
-                                            <h6 class="title">Clothing</h6>
-                                            <div class="content">
-                                                <ul class="menu-col">
-                                                    <li><a href="shop.jsp">Top Wear</a></li>
-                                                    <li><a href="shop.jsp">Party wear</a></li>
-                                                    <li><a href="shop.jsp">Bottom Wear</a></li>
-                                                    <li><a href="shop.jsp">Indian Wear</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-menu col-md-3">
-                                            <h6 class="title">Accessories</h6>
-                                            <div class="content">
-                                                <ul class="menu-col">
-                                                    <li><a href="shop.jsp">Bags</a></li>
-                                                    <li><a href="shop.jsp">Sunglasses</a></li>
-                                                    <li><a href="shop.jsp">Fragrances</a></li>
-                                                    <li><a href="shop.jsp">Wallets</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- end col-3 -->
-                                    </div>
-                                    <!-- end row -->
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown active">
-                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="cart.jsp">Cart</a></li>
-                                <li><a href="checkout.jsp">Checkout</a></li>
-                                <li><a href="my-account.jsp">My Account</a></li>
-                                <li><a href="wishlist.jsp">Wishlist</a></li>
-                                <li><a href="shop-detail.jsp">Shop Detail</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="service.jsp">Our Service</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact-us.jsp">Contact Us</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="home">Trang Chủ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="shop">Sản Phẩm</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.jsp">Liên Hệ</a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -199,59 +76,21 @@
                 <!-- Start Atribute Navigation -->
                 <div class="attr-nav">
                     <ul>
-                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                         <li class="side-menu"><a href="#">
-						<i class="fa fa-shopping-bag"></i>
-                            <span class="badge">3</span>
-					</a></li>
+                                <i class="fa fa-shopping-bag"></i>
+                                <span class="badge">3</span>
+                            </a></li>
                     </ul>
                 </div>
                 <!-- End Atribute Navigation -->
             </div>
             <!-- Start Side Menu -->
-            <div class="side">
-                <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-                <li class="cart-box">
-                    <ul class="cart-list">
-                        <li>
-                            <a href="#" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Delica omtantur </a></h6>
-                            <p>1x - <span class="price">$80.00</span></p>
-                        </li>
-                        <li>
-                            <a href="#" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Omnes ocurreret</a></h6>
-                            <p>1x - <span class="price">$60.00</span></p>
-                        </li>
-                        <li>
-                            <a href="#" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Agam facilisis</a></h6>
-                            <p>1x - <span class="price">$40.00</span></p>
-                        </li>
-                        <li class="total">
-                            <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                            <span class="float-right"><strong>Total</strong>: $180.00</span>
-                        </li>
-                    </ul>
-                </li>
-            </div>
+            <jsp:include page="/silde-cart.jsp" />
             <!-- End Side Menu -->
         </nav>
         <!-- End Navigation -->
     </header>
     <!-- End Main Top -->
-
-    <!-- Start Top Search -->
-    <div class="top-search">
-        <div class="container">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                <input type="text" class="form-control" placeholder="Search">
-                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
-            </div>
-        </div>
-    </div>
-    <!-- End Top Search -->
 
     <!-- Start All Title Box -->
     <div class="all-title-box">
@@ -261,7 +100,7 @@
                     <h2>My Account</h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                        <li class="breadcrumb-item active">My Account</li>
+                        <li class="breadcrumb-item">My Account</li>
                     </ul>
                 </div>
             </div>
@@ -273,6 +112,7 @@
     <div class="my-account-box-main">
         <div class="container">
             <div class="my-account-page">
+				
                 <div class="row">
                     <div class="col-lg-4 col-md-12">
                         <div class="account-box">
@@ -309,134 +149,6 @@
                                 <div class="service-desc">
                                     <h4>Your Addresses</h4>
                                     <p>Edit addresses for orders and gifts</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="account-box">
-                            <div class="service-box">
-                                <div class="service-icon">
-                                    <a href="#"> <i class="fa fa-credit-card"></i> </a>
-                                </div>
-                                <div class="service-desc">
-                                    <h4>Payment options</h4>
-                                    <p>Edit or add payment methods</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="account-box">
-                            <div class="service-box">
-                                <div class="service-icon">
-                                    <a href="#"> <i class="fab fa-paypal"></i> </a>
-                                </div>
-                                <div class="service-desc">
-                                    <h4>PayPal</h4>
-                                    <p>View benefits and payment settings</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="account-box">
-                            <div class="service-box">
-                                <div class="service-icon">
-                                    <a href="#"> <i class="fab fa-amazon"></i> </a>
-                                </div>
-                                <div class="service-desc">
-                                    <h4>Amazon Pay balance</h4>
-                                    <p>Add money to your balance</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom-box">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-12">
-                            <div class="account-box">
-                                <div class="service-box">
-                                    <div class="service-desc">
-                                        <h4>Gold &amp; Diamond Jewellery</h4>
-                                        <ul>
-                                            <li> <a href="#">Apps and more</a> </li>
-                                            <li> <a href="#">Content and devices</a> </li>
-                                            <li> <a href="#">Music settings</a> </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-12">
-                            <div class="account-box">
-                                <div class="service-box">
-                                    <div class="service-desc">
-                                        <h4>Handloom &amp; Handicraft Store</h4>
-                                        <ul>
-                                            <li> <a href="#">Advertising preferences </a> </li>
-                                            <li> <a href="#">Communication preferences</a> </li>
-                                            <li> <a href="#">SMS alert preferences</a> </li>
-                                            <li> <a href="#">Message center</a> </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-12">
-                            <div class="account-box">
-                                <div class="service-box">
-                                    <div class="service-desc">
-                                        <h4>The Designer Boutique</h4>
-                                        <ul>
-                                            <li> <a href="#">Amazon Pay</a> </li>
-                                            <li> <a href="#">Bank accounts for refunds</a> </li>
-                                            <li> <a href="#">Coupons</a> </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-12">
-                            <div class="account-box">
-                                <div class="service-box">
-                                    <div class="service-desc">
-                                        <h4>Gift Boxes, Gift Tags, Greeting Cards</h4>
-                                        <ul>
-                                            <li> <a href="#">Leave delivery feedback</a> </li>
-                                            <li> <a href="#">Lists</a> </li>
-                                            <li> <a href="#">Photo ID proofs</a> </li>
-                                            <li> <a href="#">Profile</a> </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-12">
-                            <div class="account-box">
-                                <div class="service-box">
-                                    <div class="service-desc">
-                                        <h4>Other accounts</h4>
-                                        <ul>
-                                            <li> <a href="#">Amazon Business registration</a> </li>
-                                            <li> <a href="#">Seller account</a> </li>
-                                            <li> <a href="#">Amazon Web Services</a> </li>
-                                            <li> <a href="#">Login with Amazon</a> </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-12">
-                            <div class="account-box">
-                                <div class="service-box">
-                                    <div class="service-desc">
-                                        <h4>Shopping programs and rentals</h4>
-                                        <ul>
-                                            <li> <a href="#">Subscribe &amp; Save</a> </li>
-                                        </ul>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -536,59 +248,7 @@
 
 
     <!-- Start Footer  -->
-    <footer>
-        <div class="footer-main">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-12 col-sm-12">
-                        <div class="footer-widget">
-                            <h4>About ThewayShop</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                </p>
-                            <ul>
-                                <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12 col-sm-12">
-                        <div class="footer-link">
-                            <h4>Information</h4>
-                            <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Customer Service</a></li>
-                                <li><a href="#">Our Sitemap</a></li>
-                                <li><a href="#">Terms &amp; Conditions</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Delivery Information</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12 col-sm-12">
-                        <div class="footer-link-contact">
-                            <h4>Contact Us</h4>
-                            <ul>
-                                <li>
-                                    <p><i class="fas fa-map-marker-alt"></i>Address: Michael I. Days 3756 <br>Preston Street Wichita,<br> KS 67213 </p>
-                                </li>
-                                <li>
-                                    <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-888705770">+1-888 705 770</a></p>
-                                </li>
-                                <li>
-                                    <p><i class="fas fa-envelope"></i>Email: <a href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a></p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <jsp:include page="footer.jsp"/>
     <!-- End Footer  -->
 
     <!-- Start copyright  -->

@@ -68,16 +68,9 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                        <li class="nav-item"><a class="nav-link" href="home">Trang Chủ</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="nav-link dropdown-toggle arrow active" data-toggle="dropdown">SHOP&nbsp;&nbsp</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="shop">Sản Phẩm</a></li>
-                                <li><a href="my-account.jsp">Tài khoản của tôi</a></li>
-                                <li><a href="wishlist.jsp">Wishlist</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="about.jsp">About Us</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="home">Trang Chủ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="shop">Sản Phẩm</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.jsp">Liên Hệ</a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -205,29 +198,19 @@
                                 <div class="invalid-feedback"> Please enter a valid email address for shipping updates.
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="country">Tỉnh / Thành phố *</label>
-                                    <select class="wide w-100" id="country" name="calc_shipping_provinces" required="">
-                                        <option value="None" data-display="Select">Chọn...</option>
-                                    </select>
-                                    <div class="invalid-feedback"> Hãy chọn 1 Tỉnh / Thành phố </div>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="state">Quận / Huyện *</label>
-                                    <select class="wide w-100" id="state" name="calc_shipping_district" required="">
-                                        <option data-display="Select">Chọn...</option>
-                                    </select>
-                                    <div class="invalid-feedback"> Hãy chọn 1 Quận / Huyện </div>
-                                </div>
-                                <input class="billing_address_1" name="" type="hidden" value="">
-                                <input class="billing_address_2" name="" type="hidden" value="">
+							
+                            <div class="mb-3">
+                                <label for="address">Thành phố *</label>
+                                <input type="text" class="form-control" id="city" placeholder="" required>
+                                <div class="invalid-feedback"> Please enter your shipping address. </div>
                             </div>
+							
                             <div class="mb-3">
                                 <label for="address">Địa chỉ chi tiết *</label>
                                 <input type="text" class="form-control" id="address" placeholder="" required>
                                 <div class="invalid-feedback"> Please enter your shipping address. </div>
                             </div>
+							
                             <div class="mb-3">
 								<label for="note">Note</label>
 								<textarea class="form-control" rows="6" id="note" name="text" style="resize: none;"></textarea>
@@ -461,7 +444,7 @@
 
 
 
-    <jsp:include page="footer.html" />
+    <jsp:include page="footer.jsp" />
 
     <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
 

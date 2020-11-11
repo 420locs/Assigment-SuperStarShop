@@ -184,7 +184,7 @@
                                 <img src="${product.picture}" class="img-fluid show-product" alt="Image">
                                 <div class="mask-icon">
                                     <ul>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
+                                        <li><a href="product?id=${product.id}" data-toggle="tooltip" data-placement="right" title="View"><i
                                                     class="fas fa-eye"></i></a></li>
                                         <!--                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
 																					title="Add to Wishlist"><i class="far fa-heart"></i></a></li>-->
@@ -245,7 +245,7 @@
 
 
 
-    <jsp:include page="footer.html" />
+    <jsp:include page="footer.jsp" />
 
 
     <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>

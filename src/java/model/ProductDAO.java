@@ -50,6 +50,7 @@ public class ProductDAO {
 		}
 		return r;
 	}
+	
 	public int getCountSearchResult(String keyword) {
 		String sql = "select count(*) as r\n"
 				+ "from Products p inner join Brands b on p.brand_id = b.id \n"
@@ -103,6 +104,7 @@ public class ProductDAO {
 		}
 		return product;
 	}
+	
 	/**
 	 * Get arraylist of product for a page by start and end index.<br/>
 	 * <strong>Filter by brand:</strong>
@@ -123,7 +125,6 @@ public class ProductDAO {
 	 * @param brand filter by brand  <strong>validated</strong>
 	 * @return 
 	 */
-	
 	public List<Product> getProducts(int page, int productsAPage, String brandId, String sortMode) {
 		int start = (page-1)*productsAPage;
 		List<Product> list = new ArrayList<>();
