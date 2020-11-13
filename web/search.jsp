@@ -4,6 +4,7 @@
     Author     : Ninh
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -134,10 +135,10 @@
                                     <select id="sort-mode" class="selectpicker show-tick form-control"
                                         data-placeholder="$ USD">
                                         <option data-display="Select">Mặc Định</option>
-                                        <option value="popularity">Độ phổ biến</option>
-                                        <option value="priceHigh">Giá cao → thấp</option>
-                                        <option value="priceLow">Giá thấp → cao</option>
-                                        <option value="bestSelling">Bán chạy nhất</option>
+                                        <option value="popularity" ${'popularity'==param.sortby ? 'selected' : ''}>Độ phổ biến</option>
+                                        <option value="priceHigh" ${'priceHigh'==param.sortby ? 'selected' : ''}>Giá cao → thấp</option>
+                                        <option value="priceLow" ${'priceLow'==param.sortby ? 'selected' : ''}>Giá thấp → cao</option>
+                                        <option value="bestSelling" ${'bestSelling'==param.sortby ? 'selected' : ''}>Bán chạy nhất</option>
                                     </select>
                                     <script>
                                         document.getElementById('sort-mode').addEventListener("change", function () {
@@ -155,34 +156,34 @@
 									<div role="tabpanel" class="tab-pane fade show active" id="grid-view">
 										<div class="row">
 											<c:forEach var="product" items="${requestScope.products}">
-												<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 ${product.brand}">
-													<div class="products-single fix">
-														<div class="box-img-hover">
-															<div class="type-lb">
-																<p class="${product.state}">${product.state}</p>
-															</div>
+                                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 ${product.brand}">
+                                                <div class="products-single fix">
+                                                    <div class="box-img-hover">
+                                                        <div class="type-lb">
+                                                            <p class="${product.state}">${product.state}</p>
+                                                        </div>
 
-															<img src="${product.picture}" class="img-fluid show-product"
-																 alt="Image">
-															<div class="mask-icon">
-																<ul>
-																	<li><a href="#" data-toggle="tooltip"
-																		   data-placement="right" title="View"><i
-																				class="fas fa-eye"></i></a></li>
-																	<!--<li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>-->
-																</ul>
-																<a class="cart" href="#">Thêm vào giỏ hàng</a>
-															</div>
-														</div>
-														<div class="why-text">
-															<a href="product?id=${product.id}">
-																<h4>${product}</h4>
-															</a>
-															<h5>${product.priceOut}</h5>
-														</div>
-													</div>
-												</div>
-											</c:forEach>
+                                                        <img src="${product.picture}" class="img-fluid show-product"
+                                                            alt="Image">
+                                                        <div class="mask-icon">
+                                                            <ul>
+                                                                <li><a href="#" data-toggle="tooltip"
+                                                                        data-placement="right" title="View"><i
+                                                                            class="fas fa-eye"></i></a></li>
+                                                                <!--<li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>-->
+                                                            </ul>
+                                                            <a class="cart" href="product?id=${product.id}">Chi tiết</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="why-text">
+                                                        <a href="product?id=${product.id}">
+                                                            <h4>${product}</h4>
+                                                        </a>
+                                                        <h5><fmt:formatNumber value="${product.priceOut}"  type="number" pattern="###,###,### VND"/></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </c:forEach>
 										</div>
 									</div>
 								</div>

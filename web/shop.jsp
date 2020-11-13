@@ -136,7 +136,7 @@
                                     <c:forEach var="brand" items="${requestScope.brands}">
                                         <li>
                                             <div class="radio radio-danger">
-                                                <input id = "brand" name="brand" onclick="location.href = 'shop?brand=${brand.id}&sortby=${param.sortby}'" value="${brand.nameOut}" type="radio">
+                                                <input id = "brand" name="brand" onclick="location.href = 'shop?brand=${brand.id}&sortby=${param.sortby}'" value="${brand.nameOut}" ${brand.id==param.brand ? 'checked' : ''} type="radio">
                                                 <label> ${brand.nameOut} </label>
                                             </div>
                                         </li>
@@ -155,10 +155,10 @@
                                     <select id="sort-mode" class="selectpicker show-tick form-control"
                                         data-placeholder="$ USD">
                                         <option data-display="Select">Mặc Định</option>
-                                        <option value="popularity" >Độ phổ biến</option>
-                                        <option value="priceHigh">Giá cao → thấp</option>
-                                        <option value="priceLow">Giá thấp → cao</option>
-                                        <option value="bestSelling">Bán chạy nhất</option>
+                                        <option value="popularity" ${'popularity'==param.sortby ? 'selected' : ''}>Độ phổ biến</option>
+                                        <option value="priceHigh" ${'priceHigh'==param.sortby ? 'selected' : ''}>Giá cao → thấp</option>
+                                        <option value="priceLow" ${'priceLow'==param.sortby ? 'selected' : ''}>Giá thấp → cao</option>
+                                        <option value="bestSelling" ${'bestSelling'==param.sortby ? 'selected' : ''}>Bán chạy nhất</option>
                                     </select>
                                     <script>
                                         document.getElementById('sort-mode').addEventListener("change", function () {
