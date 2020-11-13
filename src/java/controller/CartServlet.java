@@ -1,19 +1,20 @@
 package controller;
 
-import entity.Customer;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.ProductDAO;
+import model.*;
+import entity.*;
+import java.util.List;
 
 /**
  *
  * @author Ninh
  */
-public class HomeServlet extends HttpServlet {
+public class CartServlet extends HttpServlet {
 
 	/**
 	 * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -25,9 +26,14 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ProductDAO productAccess = new ProductDAO();
-		request.setAttribute("productData", productAccess.getProducts(1, 8, "","popularity"));
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		CartDAO cartAccess = new CartDAO();
+		Customer user = (Customer) request.getSession().getAttribute("user");
+		List<ProductInCart> data;
+		if (user != null) {
+			data = cartAccess.getProductsInCart(user.getId());
+			request.setAttribute("productsInCart", data);
+		}
+		request.getRequestDispatcher("cart.jsp").forward(request, response);
 	}
 
 	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

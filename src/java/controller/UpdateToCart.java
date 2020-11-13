@@ -7,13 +7,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.ProductDAO;
+import model.CartDAO;
 
 /**
  *
  * @author Ninh
  */
-public class HomeServlet extends HttpServlet {
+public class UpdateToCart extends HttpServlet {
 
 	/**
 	 * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -25,9 +25,22 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ProductDAO productAccess = new ProductDAO();
-		request.setAttribute("productData", productAccess.getProducts(1, 8, "","popularity"));
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		Customer user = (Customer) request.getSession().getAttribute("user");
+		if (user == null) {
+			response.sendRedirect("login");
+			return;
+		}
+		String customerId = user.getId();
+		String productId = request.getParameter("product_id");
+		int size = Integer.parseInt(request.getParameter("size"));
+		int quantity = Integer.parseInt(request.getParameter("quantity"));
+		CartDAO cartAccess = new CartDAO();
+		boolean r = cartAccess.updateItem(customerId, productId, size, quantity);
+		String url = "cart";
+		if(!r){
+			request.setAttribute("error", "Cannot update to cart");
+		}
+		response.sendRedirect(url);
 	}
 
 	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

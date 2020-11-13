@@ -1,19 +1,20 @@
 package controller;
 
 import entity.Customer;
+import entity.Product;
+import entity.ProductInCart;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.ProductDAO;
+import model.CartDAO;
 
 /**
  *
  * @author Ninh
  */
-public class HomeServlet extends HttpServlet {
+public class AddToCartServlet extends HttpServlet {
 
 	/**
 	 * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -25,9 +26,29 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ProductDAO productAccess = new ProductDAO();
-		request.setAttribute("productData", productAccess.getProducts(1, 8, "","popularity"));
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		
+		Customer user = (Customer) request.getSession().getAttribute("user");
+		if (user == null) {
+			response.sendRedirect("login");
+			return;
+		}
+		String customerId = user.getId();
+		String productId = request.getParameter("product_id");
+		String url = request.getParameter("goto");
+		int size = Integer.parseInt(request.getParameter("size"));
+		int quantity = Integer.parseInt(request.getParameter("quantity"));
+		CartDAO cartAccess = new CartDAO();
+		ProductInCart p = cartAccess.getProductInCart(customerId, productId, size);
+		boolean r;
+		if (p != null) {
+			r = cartAccess.updateItem(customerId, productId, size, p.getQuantity() + quantity);
+		} else {
+			r = cartAccess.addToCart(customerId, productId, size, quantity);
+		}
+		if (!r) {
+			request.setAttribute("error", "Cannot add to cart");
+		}
+		response.sendRedirect(url);
 	}
 
 	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

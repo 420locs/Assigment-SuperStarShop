@@ -4,6 +4,7 @@
     Author     : Ninh
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -82,19 +83,11 @@
                 <!-- /.navbar-collapse -->
 
                 <!-- Start Atribute Navigation -->
-                <div class="attr-nav">
-                    <ul>
-                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-                        <li class="side-menu"><a href="#">
-                                <i class="fa fa-shopping-bag"></i>
-                                <span class="badge">3</span>
-                            </a></li>
-                    </ul>
-                </div>
+                <jsp:include page="search-badge-bar.jsp"/>
                 <!-- End Atribute Navigation -->
             </div>
             <!-- Start Side Menu -->
-            <jsp:include page="/silde-cart.jsp" />
+            <jsp:include page="silde-cart.jsp" />
             <!-- End Side Menu -->
         </nav>
         <!-- End Navigation -->
@@ -198,14 +191,14 @@
                                                                             class="fas fa-eye"></i></a></li>
                                                                 <!--<li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>-->
                                                             </ul>
-                                                            <a class="cart" href="#">Thêm vào giỏ hàng</a>
+                                                            <a class="cart" href="product?id=${product.id}">Chi tiết</a>
                                                         </div>
                                                     </div>
                                                     <div class="why-text">
                                                         <a href="product?id=${product.id}">
                                                             <h4>${product}</h4>
                                                         </a>
-                                                        <h5>${product.priceOut}</h5>
+                                                        <h5><fmt:formatNumber value="${product.priceOut}"  type="number" pattern="###,###,### VND"/></h5>
                                                     </div>
                                                 </div>
                                             </div>

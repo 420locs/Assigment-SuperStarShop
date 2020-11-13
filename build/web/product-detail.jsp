@@ -4,6 +4,7 @@
     Author     : Ninh
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,7 +18,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!-- Site Metas -->
-		<title>${product}</title>
+		<title>ThewayShop - Ecommerce Bootstrap 4 HTML Template</title>
 		<meta name="keywords" content="">
 		<meta name="description" content="">
 		<meta name="author" content="">
@@ -68,33 +69,18 @@
 					<div class="collapse navbar-collapse" id="navbar-menu">
 						<ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
 							<li class="nav-item"><a class="nav-link" href="home">Trang Chủ</a></li>
-							<li class="dropdown active">
-								<a href="shop" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
-								<ul class="dropdown-menu">
-									<li><a href="shop">Sản Phẩm</a></li>
-									<li><a href="my-account.jsp">My Account</a></li>
-									<li><a href="wishlist.jsp">Wishlist</a></li>
-								</ul>
-							</li>
-							<li class="nav-item"><a class="nav-link" href="about.jsp">About Us</a></li>
+							<li class="nav-item active"><a class="nav-link" href="shop">Sản Phẩm</a></li>
+							<li class="nav-item"><a class="nav-link" href="about.jsp">Liên Hệ</a></li>
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
 
 					<!-- Start Atribute Navigation -->
-					<div class="attr-nav">
-						<ul>
-							<li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-							<li class="side-menu"><a href="shop">
-									<i class="fa fa-shopping-bag"></i>
-									<span class="badge">3</span>
-								</a></li>
-						</ul>
-					</div>
+					<jsp:include page="search-badge-bar.jsp"/>
 					<!-- End Atribute Navigation -->
 				</div>
 				<!-- Start Side Menu -->
-				<jsp:include page="/silde-cart.jsp" />
+				<jsp:include page="silde-cart.jsp" />
 				<!-- End Side Menu -->
 			</nav>
 			<!-- End Navigation -->
@@ -118,10 +104,11 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<h2>Shop Detail</h2>
+						<h2>Chi tiết sản phẩm</h2>
 						<ul class="breadcrumb">
-							<li class="breadcrumb-item"><a href="#">Shop</a></li>
-							<li class="breadcrumb-item active">Shop Detail </li>
+							<li class="breadcrumb-item"><a href="home">Trang chủ</a></li>
+							<li class="breadcrumb-item"><a href="shop">Sản phẩm</a></li>
+							<li class="breadcrumb-item active">${product.brand} </li>
 						</ul>
 					</div>
 				</div>
@@ -139,11 +126,15 @@
 					<div class="col-xl-7 col-lg-7 col-md-6">
 						<div class="single-product-details">
 							<h2>${product.name}</h2> 
-							<h5> <del>${product.priceOutNotSaleOff}</del>${product.priceOut}</h5>
+							<h5> <del><fmt:formatNumber value="${product.price}"  type="number" pattern="###,###,### VND"/></del><fmt:formatNumber value="${product.priceOut}"  type="number" pattern="###,###,### VND"/></h5>
 							<p class="available-stock"><span> Hơn ${product.unitsInStock} đôi còn hàng / <a href="#">${product.orderLevel} đôi đã bán </a></span>
                             <p>
 							<h4>Về sản phẩm:</h4>
-							<p>${product.description}</p>
+							<p id="summary">${product.summaryDescription}<a href="#"> xem thêm</a></p>
+							<p id="more">${product.description}<a href="#">	thu gọn</a></p>	
+							<script>
+
+							</script>
 							<ul>
 								<li>
 									<div class="form-group size-st">
@@ -158,21 +149,35 @@
 								<li>
 									<div class="form-group quantity-box">
 										<label class="control-label">Số lượng</label>
-										<input class="form-control" value="0" min="0" max="20" type="number">
+										<input id="quantity" class="form-control" value="1" min="1" max="10" type="number">
 									</div>
 								</li>
 							</ul>
 
 							<div class="price-box-bar">
 								<div class="cart-and-bay-btn">
-									<a class="btn hvr-hover" data-fancybox-close="" href="#">Mua ngay</a> <!-- CHUA LAM PHAN NAY-->
+									<button id="add-to-cart" class="btn hvr-hover white-text" onclick="addToCart()" data-fancybox-close="" >Mua ngay</button> 
+
+									<script>
+										function addToCart() {
+											if (${empty sessionScope.user}) {
+												alert("Hold up! Bạn phải đăng nhập trước đã.");
+												location.href = 'login';
+												return;
+											}
+											let size = document.getElementById("basic").value;
+											let quantity = document.getElementById("quantity").value;
+											location.href = 'add?product_id=${product.id}&size=' + size + '&quantity=' + quantity + '&goto=cart';
+
+										}
+									</script>
 									<!--<a class="btn hvr-hover" data-fancybox-close="" href="#">Add to cart</a>-->
 								</div>
 							</div>
 
 							<div class="add-to-btn">
-								<div class="add-comp">
-									<a class="btn hvr-hover" href="#"><i class="fas fa-heart"></i> Add to wishlist</a>
+								<div class="add-comp"> 
+									<a class="btn white-text" href="add?product_id=${product.id}&quantity=1&goto=home"><i class="fas fa-cart-plus"></i> Thêm vào giỏ hàng</a>
 								</div>
 								<div class="share-bar">
 									<a class="btn hvr-hover" href="https://www.fb.com/zekk01/"><i class="fab fa-facebook" aria-hidden="true" target="_blank"></i></a>
@@ -191,90 +196,7 @@
 		<!-- End Cart -->
 
 		<!-- Start Instagram Feed  -->
-		<div class="instagram-box">
-			<div class="main-instagram owl-carousel owl-theme">
-				<div class="item">
-					<div class="ins-inner-box">
-						<img src="images/instagram-img-01.jpg" alt="" />
-						<div class="hov-in">
-							<a href="#"><i class="fab fa-instagram"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="ins-inner-box">
-						<img src="images/instagram-img-02.jpg" alt="" />
-						<div class="hov-in">
-							<a href="#"><i class="fab fa-instagram"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="ins-inner-box">
-						<img src="images/instagram-img-03.jpg" alt="" />
-						<div class="hov-in">
-							<a href="#"><i class="fab fa-instagram"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="ins-inner-box">
-						<img src="images/instagram-img-04.jpg" alt="" />
-						<div class="hov-in">
-							<a href="#"><i class="fab fa-instagram"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="ins-inner-box">
-						<img src="images/instagram-img-05.jpg" alt="" />
-						<div class="hov-in">
-							<a href="#"><i class="fab fa-instagram"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="ins-inner-box">
-						<img src="images/instagram-img-06.jpg" alt="" />
-						<div class="hov-in">
-							<a href="#"><i class="fab fa-instagram"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="ins-inner-box">
-						<img src="images/instagram-img-07.jpg" alt="" />
-						<div class="hov-in">
-							<a href="#"><i class="fab fa-instagram"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="ins-inner-box">
-						<img src="images/instagram-img-08.jpg" alt="" />
-						<div class="hov-in">
-							<a href="#"><i class="fab fa-instagram"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="ins-inner-box">
-						<img src="images/instagram-img-09.jpg" alt="" />
-						<div class="hov-in">
-							<a href="#"><i class="fab fa-instagram"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="ins-inner-box">
-						<img src="images/instagram-img-05.jpg" alt="" />
-						<div class="hov-in">
-							<a href="#"><i class="fab fa-instagram"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<jsp:include page="instagram-feed.jsp"/>
 		<!-- End Instagram Feed  -->
 
 

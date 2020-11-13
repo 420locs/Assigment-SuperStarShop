@@ -49,6 +49,9 @@ public class Product {
 	public double getPrice() {
 		return price;
 	}
+	public double getPriceOut() {
+		return price - price*discount/100;
+	}
 
 	public int getUnitsInStock() {
 		return unitsInStock;
@@ -61,7 +64,7 @@ public class Product {
 	public int getView() {
 		return view;
 	}	
-
+	
 	public double getDiscount() {
 		return discount;
 	}
@@ -73,36 +76,19 @@ public class Product {
 	public String getDescription() {
 		return description;
 	}
+	
 	public String getState(){
 		return discount > 0 ? "sale" : "new";
 	}
-	public String getPriceOut(){
-		String priceFormatted = (int) (price - price*discount/100)+"";
-		StringBuilder formater = new StringBuilder(priceFormatted);
-		formater = formater.reverse();
-		int insertPointIncreased = 0;
-		for(int i = 3; i < formater.length()-1; i+=3){
-			formater.insert(i + insertPointIncreased++, '.');
-		}
-		priceFormatted = formater.reverse().toString() +" VND";
-		return priceFormatted;
-	}
 	
-	public String getPriceOutNotSaleOff(){
-		String priceFormatted = (int) (price)+"";
-		StringBuilder formater = new StringBuilder(priceFormatted);
-		formater = formater.reverse();
-		int insertPointIncreased = 0;
-		for(int i = 3; i < formater.length()-1; i+=3){
-			formater.insert(i + insertPointIncreased++, '.');
-		}
-		priceFormatted = formater.reverse().toString() +" VND";
-		return priceFormatted;
+	public String getSummaryDescription(){
+		if(description.isEmpty())
+			return "";
+		return description.substring(0, 100) + "...";
 	}
-
 	@Override
 	public String toString() {
-		return brand + " " + name; //To change body of generated methods, choose Tools | Templates.
+		return brand + " " + name; 
 	}
 	
 }

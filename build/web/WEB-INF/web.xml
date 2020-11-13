@@ -28,6 +28,22 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>controller.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <servlet-class>controller.AddToCartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveItemCart</servlet-name>
+        <servlet-class>controller.RemoveItemCart</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>controller.CartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateToCart</servlet-name>
+        <servlet-class>controller.UpdateToCart</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -55,6 +71,22 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <url-pattern>/add</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveItemCart</servlet-name>
+        <url-pattern>/remove</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateToCart</servlet-name>
+        <url-pattern>/update</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
