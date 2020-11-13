@@ -130,10 +130,18 @@
 							<p class="available-stock"><span> Hơn ${product.unitsInStock} đôi còn hàng / <a href="#">${product.orderLevel} đôi đã bán </a></span>
                             <p>
 							<h4>Về sản phẩm:</h4>
-							<p id="summary">${product.summaryDescription}<a href="#"> xem thêm</a></p>
-							<p id="more">${product.description}<a href="#">	thu gọn</a></p>	
+							<p id="summary">${product.summaryDescription}<span class="show-more" onclick="show()"> xem thêm </span></p>
+							<p id="more">${product.description}<span class="show-more" onclick="show()"> thu gọn </span></p>	
 							<script>
-
+								function show(){
+									if(document.getElementById("summary").style.display !== 'none'){
+										document.getElementById("summary").style.display = 'none';
+										document.getElementById("more").style.display = 'block';
+									} else {
+										document.getElementById("summary").style.display = 'block';
+										document.getElementById("more").style.display = 'none';
+									}
+								}
 							</script>
 							<ul>
 								<li>
