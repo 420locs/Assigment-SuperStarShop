@@ -33,10 +33,8 @@ public class CartServlet extends HttpServlet {
 			return;
 		}
 		List<ProductInCart> data;
-		if (user != null) {
-			data = cartAccess.getProductsInCart(user.getId());
-			request.setAttribute("productsInCart", data);
-		}
+		data = cartAccess.getProductsInCart(user.getId());
+		request.setAttribute("productsInCart", data);
 		request.getRequestDispatcher("cart.jsp").forward(request, response);
 	}
 
