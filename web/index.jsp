@@ -165,14 +165,6 @@
                 </div>
             </div>
             <div class="row special-list">
-				<script>
-					function a(){
-						if(${empty sessionScope.user}){
-							alert("Hold up! Bạn phải đăng nhập trước đã.");
-							location.href='login';
-						}
-					}
-				</script>
                 <c:forEach var="product" items="${requestScope.productData}">
                     <div class="col-lg-3 col-md-6 special-grid ${product.state}">
                         <div class="products-single fix">
@@ -188,7 +180,7 @@
                                         <!--                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
 																					title="Add to Wishlist"><i class="far fa-heart"></i></a></li>-->
                                     </ul>
-										<a class="cart" onmousedown="a()" href="product?id=${product.id}"> Chi tiết </a>
+										<a class="cart"href="product?id=${product.id}"> Chi tiết </a>
                                 </div>
                             </div>
                             <div class="why-text">

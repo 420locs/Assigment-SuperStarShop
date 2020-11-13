@@ -28,6 +28,10 @@ public class CartServlet extends HttpServlet {
 			throws ServletException, IOException {
 		CartDAO cartAccess = new CartDAO();
 		Customer user = (Customer) request.getSession().getAttribute("user");
+		if (user == null) {
+			response.sendRedirect("login");
+			return;
+		}
 		List<ProductInCart> data;
 		if (user != null) {
 			data = cartAccess.getProductsInCart(user.getId());
