@@ -63,49 +63,49 @@
 
 
 		<!-- Start Main Top -->
-    <header class="main-header">
-        <!-- Start Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
-            <div class="container">
-                <!-- Start Header Navigation -->
-                <div class="navbar-header">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
-                        aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <a class="navbar-brand" href="home"><img src="images/logo.png" class="logo" alt=""></a>
-                </div>
-                <!-- End Header Navigation -->
+		<header class="main-header">
+			<!-- Start Navigation -->
+			<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+				<div class="container">
+					<!-- Start Header Navigation -->
+					<div class="navbar-header">
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
+								aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+							<i class="fa fa-bars"></i>
+						</button>
+						<a class="navbar-brand" href="home"><img src="images/logo.png" class="logo" alt=""></a>
+					</div>
+					<!-- End Header Navigation -->
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbar-menu">
-                    <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                        <li class="nav-item active"><a class="nav-link" href="home">Trang Chủ</a></li>
-                        <li class="nav-item"><a class="nav-link" href="shop">Sản Phẩm</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.jsp">Liên Hệ</a></li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="navbar-menu">
+						<ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+							<li class="nav-item active"><a class="nav-link" href="home">Trang Chủ</a></li>
+							<li class="nav-item"><a class="nav-link" href="shop">Sản Phẩm</a></li>
+							<li class="nav-item"><a class="nav-link" href="about.jsp">Liên Hệ</a></li>
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
 
-                <!-- Start Atribute Navigation -->
-                <div class="attr-nav">
-                    <ul>
-                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-                        <li class="side-menu"><a href="#">
-                                <i class="fa fa-shopping-bag"></i>
-                                <span class="badge">3</span>
-                            </a></li>
-                    </ul>
-                </div>
-                <!-- End Atribute Navigation -->
-            </div>
-            <!-- Start Side Menu -->
-            <jsp:include page="/silde-cart.jsp" />
-            <!-- End Side Menu -->
-        </nav>
-        <!-- End Navigation -->
-    </header>
-    <!-- End Main Top -->
+					<!-- Start Atribute Navigation -->
+					<div class="attr-nav">
+						<ul>
+							<li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+							<li class="side-menu"><a href="#">
+									<i class="fa fa-shopping-bag"></i>
+									<span class="badge">3</span>
+								</a></li>
+						</ul>
+					</div>
+					<!-- End Atribute Navigation -->
+				</div>
+				<!-- Start Side Menu -->
+				<jsp:include page="/silde-cart.jsp" />
+				<!-- End Side Menu -->
+			</nav>
+			<!-- End Navigation -->
+		</header>
+		<!-- End Main Top -->
 
 		<!-- Start Top Search -->
 		<jsp:include page="search-bar.jsp"/>
@@ -115,15 +115,23 @@
 		<div class="limiter">
 			<div class="container-login100">
 				<div class="wrap-login100">
-					<div class="login100-pic js-tilt col-4" style="margin-top: 4rem" data-tilt>
-						<input type="file" >
-						<img src="images/img-01.png" alt="IMG">
+					<div class="login100-pic js-tilt col-4" data-tilt>
+						<img id="pic" src="images/img-01.png" alt="IMG">
 					</div>
-
 					<form class="login100-form validate-form col-8" action="register" method="POST">
 						<span class="login100-form-title">
 							Đăng ký thành viên
 						</span>
+
+						<div class="wrap-input100" >
+							<label for="picture">Example file input</label>
+							<input type="file" name="picture" id="picture" onchange="changePic(this)" >
+						</div>
+						<script>
+							function changePic(event) {
+								
+							}
+						</script>
 
 						<div class="wrap-input100 validate-input" data-validate = "Họ và tên không được để trống">
 							<input class="input100" type="text" name="name" placeholder="Họ và tên*">
@@ -141,7 +149,7 @@
 								<i class="fa fa-user" aria-hidden="true"></i>
 							</span>
 						</div>
-						
+
 						<div class="wrap-input100 validate-input" data-validate = "Mật khẩu không được để trống">
 							<input class="input100" type="password" name="password" placeholder="Mật khẩu*">
 							<span class="focus-input100"></span>
@@ -157,7 +165,7 @@
 								<i class="fa fa-lock" aria-hidden="true"></i>
 							</span>
 						</div>
-						
+
 						<div class="wrap-input100">
 							<input class="input100" type="text" name="email" placeholder="Email">
 							<span class="focus-input100"></span>
@@ -165,7 +173,7 @@
 								<i class="fa fa-envelope" aria-hidden="true"></i>
 							</span>
 						</div>
-						
+
 						<div class="wrap-input100">
 							<input class="input100" type="text" name="city" placeholder="Thành phố">
 							<span class="focus-input100"></span>
@@ -173,7 +181,7 @@
 								<i class="fa fa-building"></i>
 							</span>
 						</div>
-						
+
 						<div class="wrap-input100">
 							<input class="input100" type="text" name="address" placeholder="Địa chỉ chi tiết">
 							<span class="focus-input100"></span>
@@ -181,7 +189,7 @@
 								<i class="fa fa-address-card" aria-hidden="true"></i>
 							</span>
 						</div>
-						
+
 						<div class="wrap-input100">
 							<input class="input100" type="tel" name="phone" placeholder="Số điện thoại">
 							<span class="focus-input100"></span>
@@ -228,9 +236,9 @@
 		<!--===============================================================================================-->
 		<script src="vendor/tilt/tilt.jquery.min.js"></script>
 		<script >
-			$('.js-tilt').tilt({
-				scale: 1.1
-			})
+							$('.js-tilt').tilt({
+								scale: 1.1
+							})
 		</script>
 		<script src="js/main.js"></script>
 	</body>
