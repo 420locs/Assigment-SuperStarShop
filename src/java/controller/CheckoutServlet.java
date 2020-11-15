@@ -1,19 +1,21 @@
 package controller;
 
 import entity.Customer;
+import entity.ProductInCart;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.CustomerDAO;
+import model.CartDAO;
 
 /**
  *
  * @author Ninh
  */
-public class RegisterServlet extends HttpServlet {
+public class CheckoutServlet extends HttpServlet {
 
 	/**
 	 * Processes requests for <code>POST</code> method.
@@ -26,25 +28,28 @@ public class RegisterServlet extends HttpServlet {
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String name = request.getParameter("name");
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String email = request.getParameter("email");
+		CartDAO cartAccess = new CartDAO();
+		Customer user = (Customer) request.getSession().getAttribute("user");
+		List<ProductInCart> data = cartAccess.getProductsInCart(user.getId());
+		String phone = request.getParameter("phone");
 		String city = request.getParameter("city");
 		String address = request.getParameter("address");
-		String phone = request.getParameter("phone");
-		System.out.println(name);
-		Customer c = new Customer("", name, username, password, address, city, phone, email, phone);
-		CustomerDAO customerAccess = new CustomerDAO();
-		boolean r = customerAccess.addCustomer(c);
+		String email = request.getParameter("email");
+		String note = request.getParameter("note");
+		String voucher = "";
+		boolean r = cartAccess.order(data, user.getId(), address, city, phone, email ,note, voucher);
 		String url;
-		if (r) {
-			url = "login";
+		if(r){
+			url = "thanks.jsp";
+			for (ProductInCart p : data) {
+				cartAccess.removeItem(user.getId(), p.getId(), p.getSize());
+			}
 		} else {
-			request.setAttribute("error", "Đăng ký không thành công");
-			url = "register";
+			url = "checkout.jsp";
+			request.setAttribute("error", "Đặt hàng không thành công, :(");
 		}
-		response.sendRedirect(url);
+		request.getRequestDispatcher(url).forward(request, response);
+		
 	}
 
 	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -59,10 +64,16 @@ public class RegisterServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//get username data
-
-		//register.jsp
-		request.getRequestDispatcher("register.jsp").forward(request, response);
+		CartDAO cartAccess = new CartDAO();
+		Customer user = (Customer) request.getSession().getAttribute("user");
+		if (user == null) {
+			response.sendRedirect("login");
+			return;
+		}
+		List<ProductInCart> data;
+		data = cartAccess.getProductsInCart(user.getId());
+		request.setAttribute("productsInCart", data);
+		request.getRequestDispatcher("checkout.jsp").forward(request, response);
 	}
 
 	/**

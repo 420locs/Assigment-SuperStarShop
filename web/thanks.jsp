@@ -101,137 +101,13 @@
 		</div>
 		<!-- End Top Search -->
 
-		<!-- Start All Title Box -->
-		<div class="all-title-box">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<h2>Checkout</h2>
-						<ul class="breadcrumb">
-							<li class="breadcrumb-item"><a href="home">Trang chủ</a></li>
-							<li class="breadcrumb-item"><a href="cart">Giỏ hàng</a></li>
-							<li class="breadcrumb-item active">Đơn hàng của <b class="white-text">${user.name}</b></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End All Title Box -->
 
-		<!-- Start Cart  -->
-		<div class="alert alert-danger alert-dismissible fade show" role="alert" ${empty error ? "hidden" : ""}>
-			${error}
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>
-		</div>
-		<!-- End Error Popup  -->
 
 		<!-- Start Cart  -->
 		<div class="cart-box-main">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-6 col-lg-6 mb-3">
-						<div class="checkout-address">
-							<div class="title-left">
-								<h3>Thông tin hóa đơn </h3>
-							</div>
-							<form class="needs-validation"  action="checkout" method="post" novalidate>
-								<div class="mb-3">
-									<label for="phone">Số điện thoại *</label>
-									<input type="text" class="form-control" id="phone" name="phone" placeholder="" value="${user.phone}" required>
-									<div class="invalid-feedback"> phone number is required </div>
-								</div>
-								<div class="mb-3">
-									<label for="email">Email</label>
-									<input type="email" class="form-control" id="email" name="email" placeholder="" value="${user.email}">
-								</div>
-
-								<div class="mb-3">
-									<label for="address">Thành phố *</label>
-									<input type="text" class="form-control" id="city" name="city" placeholder="" value="${user.city}" required>
-									<div class="invalid-feedback"> Xin hãy nhập thành phố của bạn. </div>
-								</div>
-
-								<div class="mb-3">
-									<label for="address">Địa chỉ chi tiết *</label>
-									<input type="text" class="form-control" id="address" name="address"  placeholder=""  value="${user.address}" required>
-									<div class="invalid-feedback"> Xin hãy nhập địa chỉ chi tiết. </div>
-								</div>
-
-								<div class="mb-3">
-									<label for="note">Note</label>
-									<textarea class="form-control" rows="6" id="note" name="note" placeholder="Ghi chú..." style="resize: none;"></textarea>
-								</div>
-
-								<hr class="mb-4">
-								<input type="submit" id="checkout" hidden>
-							</form>
-						</div>
-					</div>
-					<div class="col-sm-6 col-lg-6 mb-3">
-						<div class="row">
-							<div class="col-md-12 col-lg-12">
-								<div class="odr-box">
-									<div class="title-left">
-										<h3>Giỏ hàng</h3>
-									</div>
-									<div class="rounded p-2 bg-light">
-										<c:set var="total" scope="request" value="${0}"/>
-										<c:forEach var="product" items="${productsInCart}">
-											<div class="media mb-2 border-bottom">
-												<div class="media-body"> <a href="product?id=${product.id}"> ${product}</a>
-													<div class="small text-muted">Size: ${product.size} <span class="mx-2">|</span>Giá: <fmt:formatNumber value="${product.priceOut}"  type="number" pattern="###,###,### VND"/> <span class="mx-2">|</span> SL:
-														${product.quantity} <span class="mx-2">|</span> Thành tiền: <fmt:formatNumber value="${product.priceOut * product.quantity}"  type="number" pattern="###,###,### VND"/></div>
-												</div>
-											</div>
-											<c:set var="total" scope="request" value="${total + product.priceOut*product.quantity}"/>
-										</c:forEach>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-12 col-lg-12">
-								<div class="order-box">
-									<br/>
-									<div class="title-left">
-										<h3>Thanh toán</h3>
-									</div>
-									<div class="d-flex">
-										<h4>Tạm tính</h4>
-										<div class="ml-auto font-weight-bold"> <fmt:formatNumber value="${total}"  type="number" pattern="###,###,### VND"/> </div>
-									</div>
-									<!--<div class="d-flex">
-										<h4>Mã giảm giá</h4>
-										<div class="ml-auto font-weight-bold"> $ 40 </div>
-									</div>-->
-									<div class="d-flex">
-										<h4>Phí ship</h4>
-										<div class="ml-auto font-weight-bold"> Miễn phí </div>
-									</div>
-									<hr class="my-1">
-
-									<div class="d-flex gr-total">
-										<h5>Tổng hóa đơn:</h5>
-										<div class="ml-auto h5"> <fmt:formatNumber value="${total}"  type="number" pattern="###,###,### VND"/> </div> 
-									</div>
-									<hr class="my-1">
-								</div>
-							</div>
-							<div class="col-12 d-flex shopping-box"> 
-								<button onclick="checkout()" class="ml-auto btn hvr-hover white-text" >Hoàn tất thanh toán</button> 
-								<script>
-									function checkout(){
-										if(${empty productsInCart}){
-											alert("Giỏ hàng của bạn chưa có gì cả!")
-											return;
-										} 
-										document.getElementById('checkout').click();
-									}
-																									
-								</script>
-							</div>
-						</div>
-					</div>
+					<h1>Đặt Hàng Thành Công <3</h1>
 				</div>
 			</div>
 		</div>

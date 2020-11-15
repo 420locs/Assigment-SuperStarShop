@@ -3,6 +3,7 @@ package model;
 import entity.Product;
 import entity.ProductInCart;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -159,6 +160,36 @@ public class CartDAO {
 			e.printStackTrace();
 		}
 		return data;
+	}
+	
+	public boolean order(List<ProductInCart> productsInCart, String userId, String address, String city, String phone, String email, String note, String voucher){
+		String sqlOrder = "insert into Orders values(?,?,?,?,?,?,?)";
+		String sqlOrderDetail = "insert into [Order Details] values((select top 1 id from Orders order by id desc),?,?,?,?)";
+		int r = 0;
+		try {
+			Connection con = dbc.getConnection();
+			PreparedStatement ps = con.prepareStatement(sqlOrder);
+			ps.setString(1, userId);
+			ps.setString(2, Date.valueOf(java.time.LocalDate.now()).toString());
+			ps.setString(3, address);
+			ps.setString(4, city);
+			ps.setString(5, phone);
+			ps.setString(6, email);
+			ps.setString(7, note);
+			r = ps.executeUpdate();
+			for(ProductInCart p : productsInCart){
+				PreparedStatement psp = con.prepareStatement(sqlOrderDetail);
+				psp.setString(1, p.getId());
+				psp.setDouble(2, p.getPriceOut());
+				psp.setInt(3, p.getQuantity());
+				psp.setString(4, voucher);
+				psp.executeUpdate();
+			}
+		} catch (Exception e) {
+			System.out.println("Bug in CartDAO");
+			e.printStackTrace();
+		}
+		return r != 0;
 	}
 	
 

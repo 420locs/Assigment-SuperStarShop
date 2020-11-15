@@ -175,7 +175,31 @@
 						</div>
 					</div>
 				</div>
-
+				<!--<div class="row my-5 " >
+					<div class="col-lg-6 col-sm-6"></div>
+					<div class="col-lg-6 col-sm-6">
+						<div class="coupon-box">
+							<div class="input-group input-group-sm">
+								<input onchange="applyVoucher(this)" style="text-transform:uppercase" class="form-control" placeholder="Nhập mã giảm giá" aria-label="Coupon code" type="text">
+								
+								<script>
+									function applyVoucher(tag){
+										let voucher = tag.value;
+										if(voucher != "ANHTTV20"){
+											document.getElementById("error").innerHTML="Voucher không tồn tại!";
+											tag.style.borderColor = "red";
+											tag.value = "";
+											return;
+										} 
+										document.getElementById("error").innerHTML="";
+										tag.style.borderColor = "green";
+									}
+								</script>
+							</div>
+						</div>
+						<p id="error"></p>
+					</div>
+				</div>-->
 				<div class="row my-5">
 					<div class="col-lg-8 col-sm-12"></div>
 					<div class="col-lg-4 col-sm-12">
@@ -196,7 +220,7 @@
 							</div>
 							<hr> </div>
 					</div>
-					<div class="col-12 d-flex shopping-box"><a href="checkout.jsp" class="ml-auto btn hvr-hover">Checkout</a> </div>
+					<div class="col-12 d-flex shopping-box"><a href="checkout" class="ml-auto btn hvr-hover">Checkout</a> </div>
 				</div>
 
 			</div>
