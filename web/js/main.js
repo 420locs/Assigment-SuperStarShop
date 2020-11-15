@@ -8,6 +8,7 @@
     var input = $('.validate-input .input100');
 
     $('.validate-form').on('submit',function(){
+		alert("ngu");
         var check = true;
 
         for(var i=0; i<input.length; i++) {

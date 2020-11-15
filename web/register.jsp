@@ -17,7 +17,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!-- Site Metas -->
-		<title>ThewayShop - Ecommerce Bootstrap 4 HTML Template</title>
+		<title>Đăng ký thành viên - Super Star Shop - Shop bán giày vui vẻ ahihi</title>
 		<meta name="keywords" content="">
 		<meta name="description" content="">
 		<meta name="author" content="">
@@ -129,7 +129,7 @@
 						</div>
 						<script>
 							function changePic(event) {
-								
+								// LAM TIEP O DAY
 							}
 						</script>
 
@@ -151,7 +151,7 @@
 						</div>
 
 						<div class="wrap-input100 validate-input" data-validate = "Mật khẩu không được để trống">
-							<input class="input100" type="password" name="password" placeholder="Mật khẩu*">
+							<input id="pass" class="input100" type="password" name="password" placeholder="Mật khẩu*">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
 								<i class="fa fa-lock" aria-hidden="true"></i>
@@ -159,7 +159,7 @@
 						</div>
 
 						<div class="wrap-input100 validate-input" data-validate = "Mật khẩu không được để trống">
-							<input class="input100" type="password" name="re-password" placeholder="Nhập lại mật khẩu*">
+							<input id="repass" class="input100" type="password" name="re-password" placeholder="Nhập lại mật khẩu*">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
 								<i class="fa fa-lock" aria-hidden="true"></i>
@@ -202,7 +202,7 @@
 								Đăng ký
 							</button>
 						</div>
-
+						
 					</form>
 				</div>
 			</div>
