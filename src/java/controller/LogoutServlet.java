@@ -29,7 +29,7 @@ public class LogoutServlet extends HttpServlet {
 		Customer customer = (Customer) session.getAttribute("user");
 		if(customer != null){
 			session.removeAttribute("user");
-			request.getRequestDispatcher("home").forward(request, response);
+			response.sendRedirect("home");
 		}
 	}
 
