@@ -135,8 +135,8 @@
 						</span>
 
 						<div class="wrap-input100">
-							<label for="picture">Avatar:</label>
-							<input type="file" name="picture" id="picture" onchange="changePic(this)">
+							<label for="picture"><b>Chọn Avatar</b></label>
+							<input type="file" name="picture" id="picture" onchange="changePic(this)" hidden="">
 						</div>
 						<script>
 							function changePic(event) {

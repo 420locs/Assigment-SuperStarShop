@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.CustomerDAO;
 
 /**
@@ -33,15 +34,24 @@ public class RegisterServlet extends HttpServlet {
 		String city = request.getParameter("city");
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
-		System.out.println(name);
 		Customer c = new Customer("", name, username, password, address, city, phone, email, phone);
 		CustomerDAO customerAccess = new CustomerDAO();
-		boolean r = customerAccess.addCustomer(c);
 		String url;
-		if (r) {
+		// Validate data
+		String error="";
+		if (customerAccess.hasExistedUsername(username)) {
+			error += "Username" + username + " đã tồn tại, hãy thử bằng một username khác<br/>";
+		}
+		if (customerAccess.hasExistedEmail(email)) {
+			error += "Email " + email + " đã tồn tại, hãy thử bằng một email khác<br/>";
+		} 
+		
+		if (error.isEmpty()) {
+			customerAccess.addCustomer(c);
 			url = "login";
 		} else {
-			request.setAttribute("error", "Đăng ký không thành công");
+			HttpSession session = request.getSession(true);
+			session.setAttribute("error", error);
 			url = "register";
 		}
 		response.sendRedirect(url);
@@ -59,8 +69,6 @@ public class RegisterServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//get username data
-
 		//register.jsp
 		request.getRequestDispatcher("register.jsp").forward(request, response);
 	}

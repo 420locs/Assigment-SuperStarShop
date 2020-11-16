@@ -175,7 +175,7 @@
 						</div>
 					</div>
 				</div>
-				<!--<div class="row my-5 " >
+				<div class="row my-5 " >
 					<div class="col-lg-6 col-sm-6"></div>
 					<div class="col-lg-6 col-sm-6">
 						<div class="coupon-box">
@@ -185,7 +185,7 @@
 								<script>
 									function applyVoucher(tag){
 										let voucher = tag.value;
-										if(voucher != "ANHTTV20"){
+										if(voucher.toUpperCase() !== "ANHTTV20"){
 											document.getElementById("error").innerHTML="Voucher không tồn tại!";
 											tag.style.borderColor = "red";
 											tag.value = "";
@@ -199,7 +199,7 @@
 						</div>
 						<p id="error"></p>
 					</div>
-				</div>-->
+				</div>
 				<div class="row my-5">
 					<div class="col-lg-8 col-sm-12"></div>
 					<div class="col-lg-4 col-sm-12">

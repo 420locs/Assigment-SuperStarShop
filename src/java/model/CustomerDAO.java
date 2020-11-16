@@ -40,7 +40,6 @@ public class CustomerDAO {
 		}
 		return c;
 	}
-	
 	public boolean addCustomer(Customer c) {
 		int r = 0;
 		String sql = "insert into Customers values(?,?,?,?,?,?)\n"
@@ -65,27 +64,48 @@ public class CustomerDAO {
 		}
 		return r != 0;
 	}
-	public List<String> getAllUsernames(){
-		List<String> data = new ArrayList<>();
-		String sql = "select username from Account";
+	
+	public boolean hasExistedUsername(String username){
+		int r = 0;
+		String sql = "select username from Account where username = ?";
 		try {
 			Connection con = dbc.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, username);
 			ResultSet rs = ps.executeQuery();
-			while(rs.next()){
-				data.add(rs.getString("username"));
+			if(rs.next()){
+				r++;
 			}
+			ps.close();
+			con.close();
 		} catch (Exception e) {
 			System.out.println("Bug in CustomerDAO");
 			e.printStackTrace();
-			return null;
 		}
-		return data;
-		
+		return r != 0;
+	}
+	public boolean hasExistedEmail(String email){
+		int r = 0;
+		String sql = "select email from Customers where email = ?";
+		try {
+			Connection con = dbc.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, email);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()){
+				r++;
+			}
+			ps.close();
+			con.close();
+		} catch (Exception e) {
+			System.out.println("Bug in CustomerDAO");
+			e.printStackTrace();
+		}
+		return r != 0;
 	}
 	public static void main(String[] args) {
 		CustomerDAO dao = new CustomerDAO();
 		Customer c = new Customer("", "Ninh Trinh Ba Minh", "nguu", "123", "vietnam", "hanoi", "+84369543469", "adzekk01@gmail.com", "");
-		System.out.println(dao.getAllUsernames());
+		System.out.println(dao.hasExistedUsername("ngu"));
 	}
 }

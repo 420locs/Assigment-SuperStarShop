@@ -4,6 +4,7 @@
     Author     : Ninh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,6 +106,15 @@
 		<div class="limiter">
 			<div class="container-login100">
 				<div class="wrap-login100">
+					<!-- Start Error Popup  -->
+					<div class="col-12 alert alert-danger alert-dismissible fade show" role="alert" ${empty sessionScope.error ? "hidden" : ""}>
+						${sessionScope.error}
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<c:remove var="error" scope="session" />
+					<!-- End Error Popup  -->
 					<div class="login100-pic js-tilt" data-tilt>
 						<img src="images/img-01.png" alt="IMG">
 					</div>

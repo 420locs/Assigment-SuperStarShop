@@ -8,7 +8,6 @@
     var input = $('.validate-input .input100');
 
     $('.validate-form').on('submit',function(){
-		alert("ngu");
         var check = true;
 
         for(var i=0; i<input.length; i++) {
@@ -29,7 +28,14 @@
     });
 
     function validate (input) {
-        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+        // source regex: https://www.thepolyglotdeveloper.com/2015/05/use-regex-to-test-password-strength-in-javascript/
+        var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+        if ($(input).attr('type') == 'password' || $(input).attr('name') == 'password') {
+            if (!strongRegex.test($(input).val().trim())) {
+                return false;
+            }
+        }
+        else if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
             if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
                 return false;
             }

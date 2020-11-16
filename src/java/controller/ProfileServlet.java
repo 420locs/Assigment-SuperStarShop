@@ -1,24 +1,20 @@
 package controller;
 
-import entity.Customer;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.CustomerDAO;
 
 /**
  *
  * @author Ninh
  */
-public class LoginServlet extends HttpServlet {
+public class ProfileServlet extends HttpServlet {
 
 	/**
-	 * Processes requests for  <code>POST</code> methods.
+	 * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
 	 *
 	 * @param request servlet request
 	 * @param response servlet response
@@ -27,36 +23,18 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String rememberMe = request.getParameter("remember-me");
-		CustomerDAO customerAccess = new CustomerDAO();
-		Customer user = customerAccess.getAccount(username, password);
-		if(user == null){
-			HttpSession session = request.getSession(true);
-			session.setAttribute("error", "Sai tên đăng nhập hoặc mật khẩu");
-			response.sendRedirect("login");
-		} else {
-			if(rememberMe != null){
-				Cookie usernameCookie = new Cookie("username", username);
-				Cookie passwordCookie = new Cookie("password", password);
-				// life = 20 min
-				usernameCookie.setMaxAge(20 * 60);
-				passwordCookie.setMaxAge(20 * 60);
-				response.addCookie(usernameCookie);
-				response.addCookie(passwordCookie);
-			} else {
-				Cookie usernameCookie = new Cookie("username", username);
-				Cookie passwordCookie = new Cookie("password", password);
-				usernameCookie.setMaxAge(0);
-				passwordCookie.setMaxAge(0);
-				response.addCookie(usernameCookie);
-				response.addCookie(passwordCookie);
-			}
-
-			HttpSession session = request.getSession(true);
-			session.setAttribute("user", user);
-			response.sendRedirect("home");
+		response.setContentType("text/html;charset=UTF-8");
+		try (PrintWriter out = response.getWriter()) {
+			/* TODO output your page here. You may use following sample code. */
+			out.println("<!DOCTYPE html>");
+			out.println("<html>");
+			out.println("<head>");
+			out.println("<title>Servlet ProfileServlet</title>");			
+			out.println("</head>");
+			out.println("<body>");
+			out.println("<h1>Servlet ProfileServlet at " + request.getContextPath() + "</h1>");
+			out.println("</body>");
+			out.println("</html>");
 		}
 	}
 
@@ -72,10 +50,7 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// get check data
-		
-		// goto login form
-		request.getRequestDispatcher("login.jsp").forward(request, response);
+		processRequest(request, response);
 	}
 
 	/**
