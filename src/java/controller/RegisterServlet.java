@@ -34,8 +34,9 @@ public class RegisterServlet extends HttpServlet {
 		String city = request.getParameter("city");
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
-		Customer c = new Customer("", name, username, password, address, city, phone, email, phone);
 		CustomerDAO customerAccess = new CustomerDAO();
+		password = customerAccess.getMd5(password);
+		Customer c = new Customer("", name, username, password, address, city, phone, email, phone);
 		String url;
 		// Validate data
 		String error="";

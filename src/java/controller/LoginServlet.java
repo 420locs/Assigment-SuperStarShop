@@ -31,6 +31,7 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String rememberMe = request.getParameter("remember-me");
 		CustomerDAO customerAccess = new CustomerDAO();
+		password = customerAccess.getMd5(password);
 		Customer user = customerAccess.getAccount(username, password);
 		if(user == null){
 			HttpSession session = request.getSession(true);
