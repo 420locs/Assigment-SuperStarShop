@@ -1,10 +1,11 @@
-<!-- <%-- 
-    Document   : index.jsp
+<%-- 
+     Document   : index.jsp
     Created on : Oct 21, 2020, 11:38:37 PM
     Author     : Ninh
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%> -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%> 
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic -->
@@ -43,7 +44,7 @@
 </head>
 
 <body>
-
+	<c:set var="user" scope="request" value="${sessionScope.user}"/>
     <!-- Start Main Top -->
     <jsp:include page="header-top.jsp"/>
     <!-- End Main Top -->
@@ -99,8 +100,8 @@
                 <div class="col-lg-12">
                     <h2>My Account</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                        <li class="breadcrumb-item">My Account</li>
+                        <li class="breadcrumb-item"><a href="Home">Trang chủ</a></li>
+                        <li class="breadcrumb-item">Tài khoản của tôi</li>
                     </ul>
                 </div>
             </div>
@@ -116,15 +117,24 @@
                     <div class="col-lg-4 col-md-12 ">
                         <div class="profile-avatar  ">
                             <div class="img-center"> 
-                                <img src="images/img-1.jpg" class="img-fluid avatar" alt="avatar">
+                                <img src="assets/avatar/1.png" class="img-fluid avatar" alt="avatar">
                             </div>
                             <div class="update-avatar">
-                                <button type="button" class="btn btn-outline-secondary btn-lg btn-block"  >Đổi avatar</button>
+                                <button type="button" class="btn btn-outline-secondary btn-lg btn-block" hidden >Đổi avatar</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-8 col-md-12">
-                        <div class="profile-detail"></div>
+                        <div class="profile-detail">
+                            <table>
+                                <tr><td><h2>Họ và tên: </h2></td> <td><h2> ${user.name}</h2></td></tr>
+                                <tr><td><h2>Username: </h2></td> <td><h2> ${user.username}</h2></td></tr>
+                                <tr><td><h2>Số điện thoại: </h2></td> <td><h2> ${user.phone}</h2></td></tr>
+                                <tr><td><h2>Email: </td> </h2><td><h2> ${user.email}</h2></td></tr>
+                                <tr><td><h2>Thành phố: </td> </h2><td><h2> ${user.city}</h2></td></tr>
+                                <tr><td><h2>Địa chỉ chi tiết: </h2></td> <td><h2> ${user.address}</h2></td></tr>
+                            </table>
+						</div>
                     </div>
                 </div>
                 <div class="row">
@@ -135,8 +145,8 @@
                                     <a href="#"> <i class="fa fa-gift"></i> </a>
                                 </div>
                                 <div class="service-desc">
-                                    <h4>Your Orders</h4>
-                                    <p>Track, return, or buy things again</p>
+                                    <h4>Đơn hàng của bạn</h4>
+                                    <p>Kiểm tra và xem lại đơn hàng cũ</p>
                                 </div>
                             </div>
                         </div>
@@ -148,8 +158,8 @@
                                     <a href="#"><i class="fa fa-lock"></i> </a>
                                 </div>
                                 <div class="service-desc">
-                                    <h4>Login &amp; security</h4>
-                                    <p>Edit login, name, and mobile number</p>
+                                    <h4>Tài khoản &amp; bảo mật</h4>
+                                    <p>Sửa tên hoặc mật khẩu</p>
                                 </div>
                             </div>
                         </div>
@@ -161,8 +171,8 @@
                                     <a href="#"> <i class="fa fa-location-arrow"></i> </a>
                                 </div>
                                 <div class="service-desc">
-                                    <h4>Your Addresses</h4>
-                                    <p>Edit addresses for orders and gifts</p>
+                                    <h4>Địa chỉ của bạn</h4>
+                                    <p>Chỉnh sửa địa chỉ</p>
                                 </div>
                             </div>
                         </div>

@@ -48,8 +48,8 @@ nav.navbar .navbar-brand img.logo{
 }
 
 .profile-detail{
-  background-color: aquamarine;
   height: 20rem;
+  padding-top: 0.3rem;
 }
 .center{
   margin: 0 auto;
@@ -71,4 +71,8 @@ nav.navbar .navbar-brand img.logo{
 
 .hidden{
   visibility: hidden;
+}
+
+.profile-detail table h2{
+  margin: 0.2rem 0;
 }
