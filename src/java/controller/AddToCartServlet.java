@@ -35,7 +35,7 @@ public class AddToCartServlet extends HttpServlet {
 		String customerId = user.getId();
 		String productId = request.getParameter("product_id");
 		String url = request.getParameter("goto");
-		int size = Integer.parseInt(request.getParameter("size"));
+		float size = Float.parseFloat(request.getParameter("size"));
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		CartDAO cartAccess = new CartDAO();
 		ProductInCart p = cartAccess.getProductInCart(customerId, productId, size);

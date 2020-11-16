@@ -153,7 +153,7 @@
 											</a>
 										</td>
 										<td class="remove-pr">
-											${product.size}
+											<fmt:formatNumber value="${product.size}"  type="number" pattern="##.#"/>
 										</td>
 										<td class="price-pr">
 											<p><fmt:formatNumber value="${product.priceOut}"  type="number" pattern="###,###,### VND"/></p>

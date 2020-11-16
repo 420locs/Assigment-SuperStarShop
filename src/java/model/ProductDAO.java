@@ -164,8 +164,8 @@ public class ProductDAO {
 		return list;
 	}
 	
-	public List<Integer> getSizesById(String id){
-		List<Integer> list = new ArrayList<>();
+	public List<Float> getSizesById(String id){
+		List<Float> list = new ArrayList<>();
 		String sql = "select * from Sizes where shoe_id = ?";
 		try {
 			Connection con = dbc.getConnection();
@@ -173,8 +173,8 @@ public class ProductDAO {
 			ps.setString(1, id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				if (rs.getInt("units_in_stock") > 0) {
-					int size = rs.getInt("size");
+				if (rs.getFloat("units_in_stock") > 0) {
+					Float size = rs.getFloat("size");
 					list.add(size);
 				}
 			}

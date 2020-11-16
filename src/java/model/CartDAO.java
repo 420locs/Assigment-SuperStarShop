@@ -37,7 +37,7 @@ public class CartDAO {
 				String description = rs.getString("description");
 				String picture = rs.getString("picture");
 				int quantity = rs.getInt("quantity");
-				int size = rs.getInt("size");
+				float size = rs.getFloat("size");
 				ProductInCart p = new ProductInCart(quantity,size, id, name, brand, price, unitsInStock, orderLevel, view, discount, description, picture);
 				data.add(p);
 			}
@@ -56,7 +56,7 @@ public class CartDAO {
 		return total;
 	}
 
-	public boolean addToCart(String customerId, String productId, int size, int quantity) {
+	public boolean addToCart(String customerId, String productId, float size, int quantity) {
 		String sql = "insert into Cart values(?,?,?,?)";
 		int r = 0;
 		try {
@@ -64,7 +64,7 @@ public class CartDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, customerId);
 			ps.setString(2, productId);
-			ps.setInt(3, size);
+			ps.setFloat(3, size);
 			ps.setInt(4, quantity);
 			r = ps.executeUpdate();
 		} catch (Exception e) {
@@ -74,7 +74,7 @@ public class CartDAO {
 		return r != 0;
 	}
 	
-	public boolean removeItem(String customerId, String productId, int size) {
+	public boolean removeItem(String customerId, String productId, float size) {
 		String sql = "delete from Cart where customer_id = ? and product_id = ? and size = ?";
 		int r = 0;
 		try {
@@ -82,7 +82,7 @@ public class CartDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, customerId);
 			ps.setString(2, productId);
-			ps.setInt(3, size);
+			ps.setFloat(3, size);
 			r = ps.executeUpdate();
 		} catch (Exception e) {
 			System.out.println("Bug in CartDAO");
@@ -91,7 +91,7 @@ public class CartDAO {
 		return r != 0;
 	}
 	
-	public boolean updateItem(String customerId, String productId, int size, int quantity) {
+	public boolean updateItem(String customerId, String productId, float size, int quantity) {
 		String sql = "update Cart set quantity = ? where customer_id = ? and product_id = ? and size = ?";
 		int r = 0;
 		try {
@@ -100,7 +100,7 @@ public class CartDAO {
 			ps.setInt(1, quantity);
 			ps.setString(2, customerId);
 			ps.setString(3, productId);
-			ps.setInt(4, size);
+			ps.setFloat(4, size);
 
 			r = ps.executeUpdate();
 		} catch (Exception e) {
@@ -127,7 +127,7 @@ public class CartDAO {
 		return r != 0;
 	}
 	
-	public ProductInCart getProductInCart(String customerId, String productId, int size) {
+	public ProductInCart getProductInCart(String customerId, String productId, float size) {
 		ProductInCart data = null;
 		String sql = "select * , b.name [brand_name] "
 				+ "from Cart c inner join Products p on c.product_id = p.id "
@@ -138,7 +138,7 @@ public class CartDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, customerId);
 			ps.setString(2, productId);
-			ps.setInt(3, size);
+			ps.setFloat(3, size);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				String id = rs.getString("product_id");

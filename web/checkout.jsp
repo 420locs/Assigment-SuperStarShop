@@ -181,7 +181,7 @@
 										<c:forEach var="product" items="${productsInCart}">
 											<div class="media mb-2 border-bottom">
 												<div class="media-body"> <a href="product?id=${product.id}"> ${product}</a>
-													<div class="small text-muted">Size: ${product.size} <span class="mx-2">|</span>Giá: <fmt:formatNumber value="${product.priceOut}"  type="number" pattern="###,###,### VND"/> <span class="mx-2">|</span> SL:
+													<div class="small text-muted">Size: <fmt:formatNumber value="${product.size}"  type="number" pattern="##.#"/><span class="mx-2">|</span>Giá: <fmt:formatNumber value="${product.priceOut}"  type="number" pattern="###,###,### VND"/> <span class="mx-2">|</span> SL:
 														${product.quantity} <span class="mx-2">|</span> Thành tiền: <fmt:formatNumber value="${product.priceOut * product.quantity}"  type="number" pattern="###,###,### VND"/></div>
 												</div>
 											</div>

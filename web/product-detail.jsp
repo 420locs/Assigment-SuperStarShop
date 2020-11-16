@@ -141,7 +141,7 @@
 										<label class="size-label">Size</label>
 										<select id="basic" class="selectpicker show-tick form-control">
 											<c:forEach var="size" items="${sizes}">
-												<option value="${size}">${size}</option>
+												<option value="${size}"><fmt:formatNumber value="${size}"  type="number" pattern="##.#"/></option>
 											</c:forEach>
 										</select>
 									</div>

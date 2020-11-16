@@ -29,7 +29,7 @@ public class ProductDetailServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		ProductDAO productAccess = new ProductDAO();
 		Product p = productAccess.getProductById(id);
-		List<Integer> sizes = productAccess.getSizesById(id);
+		List<Float> sizes = productAccess.getSizesById(id);
 		request.setAttribute("product", p);
 		request.setAttribute("sizes", sizes);
 		request.getRequestDispatcher("product-detail.jsp").forward(request, response);
