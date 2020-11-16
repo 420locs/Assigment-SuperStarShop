@@ -111,7 +111,7 @@
 		<!-- Start Top Search -->
 		<jsp:include page="search-bar.jsp" />
 		<!-- End Top Search -->
-		
+
 		<!-- Login Form -->
 		<div class="limiter">
 			<div class="container-login100">
@@ -126,105 +126,131 @@
 					</div>
 					<c:remove var="error" scope="session" />
 					<!-- End Error Popup  -->
-					<div class="login100-pic js-tilt col-4" data-tilt>
-						<img id="pic" src="images/img-01.png" alt="IMG">
-					</div>
-					<form class="login100-form validate-form col-8" action="register" method="POST">
-						<span class="login100-form-title">
-							Đăng ký thành viên
-						</span>
-
-						<div class="wrap-input100">
-							<label for="picture"><b>Chọn Avatar</b></label>
-							<input type="file" name="picture" id="picture" onchange="changePic(this)" hidden="">
-						</div>
-						<script>
-							function changePic(event) {
-								// LAM TIEP O DAY
-							}
-						</script>
-
-						<div class="wrap-input100 validate-input" data-validate="Họ và tên không được để trống">
-							<input class="input100" type="text" name="name" placeholder="Họ và tên*">
-							<span class="focus-input100"></span>
-							<span class="symbol-input100">
-								<i class="fas fa-signature"></i>
-							</span>
-						</div>
-
-
-						<div class="wrap-input100 validate-input" data-validate="Username không được để trống">
-							<input class="input100" type="text" name="username" placeholder="Username*">
-							<span class="focus-input100"></span>
-							<span class="symbol-input100">
-								<i class="fa fa-user" aria-hidden="true"></i>
-							</span>
-						</div>
-
-						<div class="wrap-input100 validate-input"
-							 data-validate="Mật khẩu phải có ít nhất 1 chữ thường, 1 chữ hoa, 1 chữ số, 1 ký tự đặc biệt và có nhiều hơn hoặc bằng 8 ký tự">
-							<input id="pass" class="input100" type="password" name="password" placeholder="Mật khẩu*">
-							<span class="focus-input100"></span>
-							<span class="symbol-input100">
-								<i class="fa fa-lock" aria-hidden="true"></i>
-							</span>
-						</div>
-
-						<div class="wrap-input100" data-validate="Mật khẩu nhập lại không khớp">
-							<input id="repass" class="input100" type="password" name="re-password" placeholder="Nhập lại mật khẩu*">
-							<span class="focus-input100"></span>
-							<span class="symbol-input100">
-								<i class="fa fa-lock" aria-hidden="true"></i>
-							</span>
-						</div>
-
-						<div class="wrap-input100 validate-input" data-validate="Email phải đúng định dạng abc@xyz.blobla">
-							<input class="input100" type="email" name="email" placeholder="Email">
-							<span class="focus-input100"></span>
-							<span class="symbol-input100">
-								<i class="fa fa-envelope" aria-hidden="true"></i>
-							</span>
-						</div>
-						<div class="wrap-input100">
-							<input class="input100" type="tel" name="phone" placeholder="Số điện thoại">
-							<span class="focus-input100"></span>
-							<span class="symbol-input100">
-								<i class="fa fa-phone" aria-hidden="true"></i>
-							</span>
-						</div>
-
-
-						<div class="wrap-input100">
-							<input class="input100" type="text" name="city" placeholder="Thành phố">
-							<span class="focus-input100"></span>
-							<span class="symbol-input100">
-								<i class="fa fa-building"></i>
-							</span>
-						</div>
-
-						<div class="wrap-input100">
-							<input class="input100" type="text" name="address" placeholder="Địa chỉ chi tiết">
-							<span class="focus-input100"></span>
-							<span class="symbol-input100">
-								<i class="fa fa-address-card" aria-hidden="true"></i>
-							</span>
-						</div>
-
-						<div class="container-login100-form-btn">
-							<input class="login100-form-btn" type="submit" value="Đăng ký" onclick="return validate()">
-						</div>
-						<script>
-							function validate() {
-								let pass = document.getElementById('pass').value;
-								let repass = document.getElementById('repass').value;
-								if (pass != repass) {
-									$("#repass").parent().addClass('alert-validate');
-									return false;
+					<div class="row col-12">
+						<div class="col-4">
+							<script>
+								function changePic(event, src) {
+									document.getElementById("picture").value = 'assets/avatar/' + src + '.png';
+									document.getElementById(src).style.visibility='visible';
+									for (i = 0; i < 4; i++) {
+										if (i != src) {
+											document.getElementById(i + '').style.visibility = 'hidden';
+										}
+									}
 								}
-								return true
-							}
-						</script>
-					</form>
+							</script>
+							<div class="row">
+								<span class="login100-form-title">
+									Chọn Avatar
+								</span>
+								<div class="login100-pic js-tilt" data-tilt>
+									<i id="0" class="fas fa-arrow-right hidden"></i><img src="assets/avatar/0.png " alt="IMG"
+										onclick="changePic(this, 0)">
+								</div>
+								<div class="login100-pic js-tilt" data-tilt>
+									<i id="1" class="fas fa-arrow-right hidden"></i><img src="assets/avatar/1.png " alt="IMG"
+										onclick="changePic(this, 1)">
+								</div>
+								<div class="login100-pic js-tilt" data-tilt>
+									<i id="2" class="fas fa-arrow-right hidden"></i><img src="assets/avatar/2.png " alt="IMG"
+										onclick="changePic(this, 2)">
+								</div>
+								<div class="login100-pic js-tilt" data-tilt>
+									<i id="3" class="fas fa-arrow-right hidden"></i><img src="assets/avatar/3.png " alt="IMG"
+										onclick="changePic(this, 3)">
+								</div>
+							</div>
+						</div>
+						<form class="login100-form validate-form col-8" action="register" method="POST">
+							<span class="login100-form-title">
+								Đăng ký thành viên
+							</span>
+	
+							<input id="picture" type="text" name="picture" hidden value="images/img-01.png">
+	
+	
+							<div class="wrap-input100 validate-input" data-validate="Họ và tên không được để trống">
+								<input class="input100" type="text" name="name" placeholder="Họ và tên*">
+								<span class="focus-input100"></span>
+								<span class="symbol-input100">
+									<i class="fas fa-signature"></i>
+								</span>
+							</div>
+
+
+							<div class="wrap-input100 validate-input" data-validate="Username không được để trống">
+								<input class="input100" type="text" name="username" placeholder="Username*">
+								<span class="focus-input100"></span>
+								<span class="symbol-input100">
+									<i class="fa fa-user" aria-hidden="true"></i>
+								</span>
+							</div>
+
+							<div class="wrap-input100 validate-input"
+								 data-validate="Mật khẩu phải có ít nhất 1 chữ thường, 1 chữ hoa, 1 chữ số, 1 ký tự đặc biệt và có nhiều hơn hoặc bằng 8 ký tự">
+								<input id="pass" class="input100" type="password" name="password" placeholder="Mật khẩu*">
+								<span class="focus-input100"></span>
+								<span class="symbol-input100">
+									<i class="fa fa-lock" aria-hidden="true"></i>
+								</span>
+							</div>
+
+							<div class="wrap-input100" data-validate="Mật khẩu nhập lại không khớp">
+								<input id="repass" class="input100" type="password" name="re-password" placeholder="Nhập lại mật khẩu*">
+								<span class="focus-input100"></span>
+								<span class="symbol-input100">
+									<i class="fa fa-lock" aria-hidden="true"></i>
+								</span>
+							</div>
+
+							<div class="wrap-input100 validate-input" data-validate="Email phải đúng định dạng abc@xyz.blobla">
+								<input class="input100" type="email" name="email" placeholder="Email">
+								<span class="focus-input100"></span>
+								<span class="symbol-input100">
+									<i class="fa fa-envelope" aria-hidden="true"></i>
+								</span>
+							</div>
+							<div class="wrap-input100">
+								<input class="input100" type="tel" name="phone" placeholder="Số điện thoại">
+								<span class="focus-input100"></span>
+								<span class="symbol-input100">
+									<i class="fa fa-phone" aria-hidden="true"></i>
+								</span>
+							</div>
+
+
+							<div class="wrap-input100">
+								<input class="input100" type="text" name="city" placeholder="Thành phố">
+								<span class="focus-input100"></span>
+								<span class="symbol-input100">
+									<i class="fa fa-building"></i>
+								</span>
+							</div>
+
+							<div class="wrap-input100">
+								<input class="input100" type="text" name="address" placeholder="Địa chỉ chi tiết">
+								<span class="focus-input100"></span>
+								<span class="symbol-input100">
+									<i class="fa fa-address-card" aria-hidden="true"></i>
+								</span>
+							</div>
+
+							<div class="container-login100-form-btn">
+								<input class="login100-form-btn" type="submit" value="Đăng ký" onclick="return validate()">
+							</div>
+							<script>
+								function validate() {
+									let pass = document.getElementById('pass').value;
+									let repass = document.getElementById('repass').value;
+									if (pass != repass) {
+										$("#repass").parent().addClass('alert-validate');
+										return false;
+									}
+									return true
+								}
+							</script>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -257,9 +283,9 @@
 		<!--===============================================================================================-->
 		<script src="vendor/tilt/tilt.jquery.min.js"></script>
 		<script>
-							$('.js-tilt').tilt({
-								scale: 1.1
-							})
+								$('.js-tilt').tilt({
+									scale: 1.1
+								})
 		</script>
 		<script src="js/main.js"></script>
 	</body>

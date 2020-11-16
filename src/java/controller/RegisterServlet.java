@@ -34,17 +34,18 @@ public class RegisterServlet extends HttpServlet {
 		String city = request.getParameter("city");
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
+		String picture = request.getParameter("picture");
 		CustomerDAO customerAccess = new CustomerDAO();
 		password = customerAccess.getMd5(password);
-		Customer c = new Customer("", name, username, password, address, city, phone, email, phone);
+		Customer c = new Customer("", name, username, password, address, city, phone, email, picture);
 		String url;
 		// Validate data
 		String error="";
 		if (customerAccess.hasExistedUsername(username)) {
-			error += "Username" + username + " đã tồn tại, hãy thử bằng một username khác<br/>";
+			error += "Username \"" + username + "\" đã tồn tại, hãy thử bằng một username khác<br/>";
 		}
 		if (customerAccess.hasExistedEmail(email)) {
-			error += "Email " + email + " đã tồn tại, hãy thử bằng một email khác<br/>";
+			error += "Email \"" + email + "\" đã tồn tại, hãy thử bằng một email khác<br/>";
 		} 
 		
 		if (error.isEmpty()) {

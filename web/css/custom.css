@@ -68,3 +68,7 @@ nav.navbar .navbar-brand img.logo{
 .update-avatar{
   height: 2rem;
 }
+
+.hidden{
+  visibility: hidden;
+}
