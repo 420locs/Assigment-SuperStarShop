@@ -129,9 +129,9 @@
                             <table>
                                 <tr><td><h2><b>Họ và tên: </b></h2></td> <td><h2> ${user.name}</h2></td></tr>
                                 <tr><td><h2><b>Username: </b></h2></td> <td><h2> ${user.username}</h2></td></tr>
-                                <tr><td><h2><b>Số điện thoại: </b></h2></td> <td><h2> ${user.phone}</h2></td></tr>
-                                <tr><td><h2><b>Email: </b></td> </h2><td><h2> ${user.email}</h2></td></tr>
-                                <tr><td><h2><b>Thành phố: </b></td> </h2><td><h2> ${user.city}</h2></td></tr>
+                                <tr><td><h2><b>Số điện thoại: </b></h2> </td> <td><h2> ${user.phone}</h2></td></tr>
+                                <tr><td><h2><b>Email: </b></h2></td> <td><h2> ${user.email}</h2></td></tr>
+                                <tr><td><h2><b>Thành phố: </b></h2></td> <td><h2> ${user.city}</h2></td></tr>
                                 <tr><td><h2><b>Địa chỉ chi tiết: </b></h2></td> <td><h2> ${user.address}</h2></td></tr>
                             </table>
 						</div>
