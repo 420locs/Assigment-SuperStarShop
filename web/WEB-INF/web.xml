@@ -48,6 +48,10 @@
         <servlet-name>CheckoutServlet</servlet-name>
         <servlet-class>controller.CheckoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProfileServlet</servlet-name>
+        <servlet-class>controller.ProfileServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>CheckoutServlet</servlet-name>
         <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfileServlet</servlet-name>
+        <url-pattern>/profile</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

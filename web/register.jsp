@@ -1,9 +1,10 @@
 <%-- 
-    Document   : index.jsp
+    Document   : register.jsp
     Created on : Oct 21, 2020, 11:38:37 PM
     Author     : Ninh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,13 +35,13 @@
 		<link rel="stylesheet" href="css/responsive.css">
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="css/custom.css">
-		<!--===============================================================================================-->	
-		<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+		<!--===============================================================================================-->
+		<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-		<!--===============================================================================================-->	
+		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
 		<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
@@ -49,16 +50,16 @@
 		<link rel="stylesheet" type="text/css" href="css/login-form.css">
 		<!--===============================================================================================-->
 		<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
+			  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+			<![endif]-->
 	</head>
 
 	<body>
 
 
 		<!-- Start Main Top -->
-		<jsp:include page="header-top.jsp"/>
+		<jsp:include page="header-top.jsp" />
 		<!-- End Main Top -->
 
 
@@ -108,13 +109,23 @@
 		<!-- End Main Top -->
 
 		<!-- Start Top Search -->
-		<jsp:include page="search-bar.jsp"/>
+		<jsp:include page="search-bar.jsp" />
 		<!-- End Top Search -->
-
+		
 		<!-- Login Form -->
 		<div class="limiter">
 			<div class="container-login100">
+
 				<div class="wrap-login100">
+					<!-- Start Error Popup  -->
+					<div class="col-12 alert alert-danger alert-dismissible fade show" role="alert" ${empty sessionScope.error ? "hidden" : ""}>
+						${sessionScope.error}
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<c:remove var="error" scope="session" />
+					<!-- End Error Popup  -->
 					<div class="login100-pic js-tilt col-4" data-tilt>
 						<img id="pic" src="images/img-01.png" alt="IMG">
 					</div>
@@ -123,9 +134,9 @@
 							Đăng ký thành viên
 						</span>
 
-						<div class="wrap-input100" >
-							<label for="picture">Example file input</label>
-							<input type="file" name="picture" id="picture" onchange="changePic(this)" >
+						<div class="wrap-input100">
+							<label for="picture">Avatar:</label>
+							<input type="file" name="picture" id="picture" onchange="changePic(this)">
 						</div>
 						<script>
 							function changePic(event) {
@@ -133,7 +144,7 @@
 							}
 						</script>
 
-						<div class="wrap-input100 validate-input" data-validate = "Họ và tên không được để trống">
+						<div class="wrap-input100 validate-input" data-validate="Họ và tên không được để trống">
 							<input class="input100" type="text" name="name" placeholder="Họ và tên*">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
@@ -142,7 +153,7 @@
 						</div>
 
 
-						<div class="wrap-input100 validate-input" data-validate = "Username không được để trống">
+						<div class="wrap-input100 validate-input" data-validate="Username không được để trống">
 							<input class="input100" type="text" name="username" placeholder="Username*">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
@@ -150,7 +161,8 @@
 							</span>
 						</div>
 
-						<div class="wrap-input100 validate-input" data-validate = "Mật khẩu không được để trống">
+						<div class="wrap-input100 validate-input"
+							 data-validate="Mật khẩu phải có ít nhất 1 chữ thường, 1 chữ hoa, 1 chữ số, 1 ký tự đặc biệt và có nhiều hơn hoặc bằng 8 ký tự">
 							<input id="pass" class="input100" type="password" name="password" placeholder="Mật khẩu*">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
@@ -158,7 +170,7 @@
 							</span>
 						</div>
 
-						<div class="wrap-input100 validate-input" data-validate = "Mật khẩu không được để trống">
+						<div class="wrap-input100" data-validate="Mật khẩu nhập lại không khớp">
 							<input id="repass" class="input100" type="password" name="re-password" placeholder="Nhập lại mật khẩu*">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
@@ -166,13 +178,21 @@
 							</span>
 						</div>
 
-						<div class="wrap-input100">
-							<input class="input100" type="text" name="email" placeholder="Email">
+						<div class="wrap-input100 validate-input" data-validate="Email phải đúng định dạng abc@xyz.blobla">
+							<input class="input100" type="email" name="email" placeholder="Email">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
 								<i class="fa fa-envelope" aria-hidden="true"></i>
 							</span>
 						</div>
+						<div class="wrap-input100">
+							<input class="input100" type="tel" name="phone" placeholder="Số điện thoại">
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+								<i class="fa fa-phone" aria-hidden="true"></i>
+							</span>
+						</div>
+
 
 						<div class="wrap-input100">
 							<input class="input100" type="text" name="city" placeholder="Thành phố">
@@ -190,19 +210,20 @@
 							</span>
 						</div>
 
-						<div class="wrap-input100">
-							<input class="input100" type="tel" name="phone" placeholder="Số điện thoại">
-							<span class="focus-input100"></span>
-							<span class="symbol-input100">
-								<i class="fa fa-phone" aria-hidden="true"></i>
-							</span>
-						</div>
 						<div class="container-login100-form-btn">
-							<button class="login100-form-btn">
-								Đăng ký
-							</button>
+							<input class="login100-form-btn" type="submit" value="Đăng ký" onclick="return validate()">
 						</div>
-						
+						<script>
+							function validate() {
+								let pass = document.getElementById('pass').value;
+								let repass = document.getElementById('repass').value;
+								if (pass != repass) {
+									$("#repass").parent().addClass('alert-validate');
+									return false;
+								}
+								return true
+							}
+						</script>
 					</form>
 				</div>
 			</div>
@@ -235,7 +256,7 @@
 		<script src="vendor/select2/select2.min.js"></script>
 		<!--===============================================================================================-->
 		<script src="vendor/tilt/tilt.jquery.min.js"></script>
-		<script >
+		<script>
 							$('.js-tilt').tilt({
 								scale: 1.1
 							})

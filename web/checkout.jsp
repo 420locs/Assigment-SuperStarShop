@@ -118,7 +118,7 @@
 		</div>
 		<!-- End All Title Box -->
 
-		<!-- Start Cart  -->
+		<!-- Start Error Popup  -->
 		<div class="alert alert-danger alert-dismissible fade show" role="alert" ${empty error ? "hidden" : ""}>
 			${error}
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">

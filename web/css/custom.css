@@ -41,3 +41,30 @@ nav.navbar .navbar-brand img.logo{
 .show-more{
 	color: #d33b33
 }
+
+.profile-avatar{
+  height: 20rem;
+  padding-top: 0.5rem;
+}
+
+.profile-detail{
+  background-color: aquamarine;
+  height: 20rem;
+}
+.center{
+  margin: 0 auto;
+}
+.img-center{
+  margin: 0 auto;
+  width: 15rem;
+}
+.avatar{
+  border-radius: 50%;
+  width: 15rem;
+  height: 15rem;
+  margin-bottom: 1rem;
+}
+
+.update-avatar{
+  height: 2rem;
+}
