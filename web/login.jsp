@@ -71,7 +71,7 @@
 					<!-- Start Header Navigation -->
 					<div class="navbar-header">
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
-							aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+								aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 							<i class="fa fa-bars"></i>
 						</button>
 						<a class="navbar-brand" href="home"><img src="images/logo.png" class="logo" alt=""></a>
@@ -88,7 +88,7 @@
 					</div>
 					<!-- /.navbar-collapse -->
 
-					
+
 				</div>
 				<!-- Start Side Menu -->
 				<jsp:include page="/silde-cart.jsp" />
@@ -116,7 +116,7 @@
 					<c:remove var="error" scope="session" />
 					<!-- End Error Popup  -->
 					<div class="login100-pic js-tilt" data-tilt>
-						<img src="images/img-01.png" alt="IMG">
+						<img style="max-width: 100%;" src="images/img-01.png" alt="IMG">
 					</div>
 
 					<form class="login100-form validate-form" action="login" method="POST">
@@ -139,7 +139,7 @@
 								<i class="fa fa-lock" aria-hidden="true"></i>
 							</span>
 						</div>
-						
+
 						<div class="form-group form-check">
 							<input type="checkbox" name="remember-me" >
 							<label class="form-check-label" for="exampleCheck1">Remember me</label>
@@ -203,7 +203,7 @@
 				scale: 1.1
 			})
 		</script>
-		<script src="js/main.js"></script>
+		
 	</body>
 
 </html>

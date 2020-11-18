@@ -1,13 +1,16 @@
 package controller;
 
 import entity.Customer;
+import entity.Order;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.CustomerDAO;
+import model.OrderDAO;
 
 /**
  *
@@ -57,6 +60,9 @@ public class ProfileServlet extends HttpServlet {
 			response.sendRedirect("login");
 			return;
 		}
+		OrderDAO orderAccess = new OrderDAO();
+		List<Order> orders = orderAccess.getOrderedByUserId(user.getId());
+		request.setAttribute("orders", orders);
 		request.getRequestDispatcher("profile.jsp").forward(request, response);
 		
 	}
